@@ -1,0 +1,22 @@
+{
+  "name": "@nanofleet/primitives",
+  "version": "1.0.0",
+  "description": "Atomic components for React-Native",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com-calintamas:nanofleet/primitives.git"
+  },
+  "keywords": [
+    "atomic-design",
+    "primitives",
+    "react-native"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^6.8.0"
+  }
+}
