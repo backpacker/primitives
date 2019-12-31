@@ -16,7 +16,8 @@
     "react-native"
   ],
   "license": "MIT",
-  "devDependencies": {
-    "eslint": "^6.8.0"
+  "devDependencies": {},
+  "dependencies": {
+    "lodash.merge": "^4.6.2"
   }
 }
