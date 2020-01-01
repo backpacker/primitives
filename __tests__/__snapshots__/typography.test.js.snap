@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BaseText> should render Alan Turing; bold 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#000",
+        "fontFamily": "Helvetica",
+        "fontWeight": "400",
+      },
+      Object {
+        "fontWeight": "700",
+      },
+      Object {},
+    ]
+  }
+>
+  Alan Turing
+</Text>
+`;
+
+exports[`<BaseText> should render Alan Turing; default formatting 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#000",
+        "fontFamily": "Helvetica",
+        "fontWeight": "400",
+      },
+      Object {},
+    ]
+  }
+>
+  Alan Turing
+</Text>
+`;
+
+exports[`<BaseText> should render Alan Turing; fontWeight={thin} fontSize={18} color={#FFF} 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#000",
+        "fontFamily": "Helvetica",
+        "fontWeight": "400",
+      },
+      Object {
+        "fontWeight": "200",
+      },
+      Object {
+        "fontSize": 18,
+      },
+      Object {
+        "color": "#FFF",
+      },
+      Object {},
+    ]
+  }
+>
+  Alan Turing
+</Text>
+`;
+
+exports[`<BaseText> should render Alan Turing; uppercase underline strikeout semibold center 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#000",
+        "fontFamily": "Helvetica",
+        "fontWeight": "400",
+      },
+      Object {
+        "textTransform": "uppercase",
+      },
+      Object {
+        "textDecorationLine": "underline",
+      },
+      Object {
+        "textDecorationLine": "line-through",
+      },
+      Object {
+        "fontWeight": "600",
+      },
+      Object {
+        "textAlign": "center",
+      },
+      Object {},
+    ]
+  }
+>
+  Alan Turing
+</Text>
+`;
+
+exports[`<H1> should render Alan Turing 1`] = `
+<Text
+  style={
+    Array [
+      Object {
+        "color": "#000",
+        "fontFamily": "Helvetica",
+        "fontWeight": "400",
+      },
+      Object {
+        "fontSize": 32,
+      },
+      Object {},
+    ]
+  }
+>
+  Alan Turing
+</Text>
+`;

@@ -36,11 +36,12 @@ class BaseText extends PureComponent {
             semibold && { fontWeight: typography.fontWeight.semibold },
             bold && { fontWeight: typography.fontWeight.bold },
             fontWeight && { fontWeight: typography.fontWeight[fontWeight] },
-            fontSize && { fontSize: typography.fontSize[fontSize] },
+            fontSize && { fontSize },
             center && { textAlign: 'center' },
             color && { color },
             { ...rest }
-          ];
+          ].filter(Boolean);
+
           return <Text style={baseStyle}>{children}</Text>;
         }}
       </ConfigConsumer>

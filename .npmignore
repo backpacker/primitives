@@ -1,2 +1,5 @@
 __tests__
+coverage
 .eslintrc.js
+.prettierrc.js
+.pre-commit-config.yaml

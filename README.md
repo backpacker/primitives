@@ -10,11 +10,11 @@ These are the foundational components for all user interfaces, the `atoms` from 
 ## Install
 
 ```bash
-yarn add @nanofleet/primitives
+yarn add @backpackerds/primitives
 ```
 
 ## Usage
 
 ```js
-import { PrimaryButton } from '@nanofleet/primitives';
+import { PrimaryButton } from '@backpackerds/primitives';
 ```
