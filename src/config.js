@@ -1,6 +1,8 @@
 import { merge } from './utils/object';
 // eslint-disable-next-line
-import customConfig from '../../primitives.config.js'; // TODO: put this on more level deep
+// import customConfig from '../../primitives.config.js'; // TODO: put this on more level deep
+
+const customConfig = {}
 
 const config = {
   typography: {
