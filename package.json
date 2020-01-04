@@ -1,11 +1,12 @@
 {
   "name": "@backpackerds/primitives",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Atomic components for React-Native",
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "test-coverage": "jest --coverage"
+    "test-coverage": "jest --coverage",
+    "commit": "git cz"
   },
   "repository": {
     "type": "git",
@@ -18,14 +19,21 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "3.0.2",
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.56.0",
-    "react-test-renderer": "^16.12.0",
-    "semantic-release": "^15.14.0",
     "react": "16.9.0",
-    "react-native": "0.61.5"
+    "react-native": "0.61.5",
+    "react-test-renderer": "^16.12.0",
+    "semantic-release": "^15.14.0"
   },
   "dependencies": {
     "lodash.merge": "^4.6.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
