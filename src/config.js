@@ -2,7 +2,7 @@ import { merge } from './utils/object';
 // eslint-disable-next-line
 // import customConfig from '../../primitives.config.js'; // TODO: put this on more level deep
 
-const customConfig = {}
+const customConfig = {};
 
 const config = {
   typography: {
@@ -31,12 +31,12 @@ const config = {
   },
 
   spacer: {
-    smallest: 2,
-    small: 4,
-    medium: 8,
-    default: 12,
-    large: 16,
-    largest: 20
+    smallest: 6,
+    small: 10,
+    medium: 14,
+    default: 18,
+    large: 22,
+    largest: 26
   },
 
   scheme: 'default',
