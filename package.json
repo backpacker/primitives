@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "test-coverage": "jest --coverage",
-    "commit": "git cz"
+    "commit": "pre-commit && git cz"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "@semantic-release/git": "^7.0.18",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "3.0.2",
     "jest": "^24.9.0",
