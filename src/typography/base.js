@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { Text } from 'react-native';
 
 import { ConfigConsumer } from '../config-context';
+import { makeStyle } from '../utils/style';
 
 class BaseText extends PureComponent {
   render() {
@@ -24,7 +25,7 @@ class BaseText extends PureComponent {
         {({ config }) => {
           const { typography } = config;
 
-          const baseStyle = [
+          const baseStyle = makeStyle([
             {
               fontFamily: typography.fontFamily.default,
               fontWeight: typography.fontWeight.normal,
@@ -40,7 +41,7 @@ class BaseText extends PureComponent {
             center && { textAlign: 'center' },
             color && { color },
             { ...rest }
-          ].filter(Boolean);
+          ])
 
           return <Text style={baseStyle}>{children}</Text>;
         }}

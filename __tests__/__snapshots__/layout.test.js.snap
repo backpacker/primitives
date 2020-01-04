@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Column> should render two H1 elements in column layout, centered 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+      Object {
+        "flexDirection": "column",
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "fontFamily": "Helvetica",
+          "fontWeight": "400",
+        },
+        Object {
+          "fontSize": 32,
+        },
+        Object {},
+      ]
+    }
+  >
+    Brian Kernighan
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "fontFamily": "Helvetica",
+          "fontWeight": "400",
+        },
+        Object {
+          "fontSize": 32,
+        },
+        Object {},
+      ]
+    }
+  >
+    Dennis Ritchie
+  </Text>
+</View>
+`;
+
+exports[`<Float> should render two H1 elements in float layout 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "position": "absolute",
+        "zIndex": 1,
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "fontFamily": "Helvetica",
+          "fontWeight": "400",
+        },
+        Object {
+          "fontSize": 32,
+        },
+        Object {},
+      ]
+    }
+  >
+    Brian Kernighan
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "fontFamily": "Helvetica",
+          "fontWeight": "400",
+        },
+        Object {
+          "fontSize": 32,
+        },
+        Object {},
+      ]
+    }
+  >
+    Dennis Ritchie
+  </Text>
+</View>
+`;
+
+exports[`<Row> should render two H1 elements in row layout 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "fontFamily": "Helvetica",
+          "fontWeight": "400",
+        },
+        Object {
+          "fontSize": 32,
+        },
+        Object {},
+      ]
+    }
+  >
+    Brian Kernighan
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "fontFamily": "Helvetica",
+          "fontWeight": "400",
+        },
+        Object {
+          "fontSize": 32,
+        },
+        Object {},
+      ]
+    }
+  >
+    Dennis Ritchie
+  </Text>
+</View>
+`;
