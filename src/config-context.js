@@ -30,8 +30,13 @@ export default class ConfigProvider extends Component {
     const { children } = this.props;
     const { config } = this.state;
 
+    const { colors, scheme } = config;
+
     const value = {
-      config,
+      config: {
+        ...config,
+        colorScheme: colors[scheme]
+      },
       updateConfig: this.updateConfig
     };
 

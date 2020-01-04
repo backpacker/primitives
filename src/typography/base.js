@@ -23,13 +23,13 @@ class BaseText extends PureComponent {
     return (
       <ConfigConsumer>
         {({ config }) => {
-          const { typography } = config;
+          const { typography, colorScheme } = config;
 
           const baseStyle = makeStyle([
             {
               fontFamily: typography.fontFamily.default,
               fontWeight: typography.fontWeight.normal,
-              color: '#000' // TODO: change this
+              color: colorScheme.text.default
             },
             uppercase && { textTransform: 'uppercase' },
             underline && { textDecorationLine: 'underline' },
@@ -41,7 +41,7 @@ class BaseText extends PureComponent {
             center && { textAlign: 'center' },
             color && { color },
             { ...rest }
-          ])
+          ]);
 
           return <Text style={baseStyle}>{children}</Text>;
         }}
