@@ -1,8 +1,8 @@
 # Anatomy of a UI element
 
 1. [How things can get messy](#how-things-can-get-messy)
-2. [Building primitives](#build-primitives)
-3. [Using primitives](#use-primitives)
+2. [Building primitives](#building-primitives)
+3. [Using primitives](#using-primitives)
 
 ## How things can get messy
 
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5
   },
   text: {
-    fontFamily: 'Helvetica',
+    fontFamily: 'Handvetica',
     fontSize: 18,
     textTransform: 'uppercase',
     color: '#FFF' // white
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-It's all good, the component looks exactly like the designer wanted it. It takes a `label` string and an `onPress` function as `props`, so it can be reused throughout my app. I rename it to `DefaultButton` and put it in `src/components`. By convention, the `components` dir holds the reusable UI for my app.
+It's all good, the component looks exactly like the designer wanted it (let's suppose the intended background was indeed a shade of **green**) It takes a `label` string and an `onPress` function as `props`, so it can be reused throughout my app. I rename it to `DefaultButton` and put it in `src/components`. By convention, the `components` dir holds the reusable UI for my app.
 
 ```js
 // src/components/DefaultButton
@@ -51,12 +51,12 @@ const DefaultButton = (props) => {...}
 Now I can use it anywhere like this:
 
 ```js
-import DefaultButton from 'src/components/DefaultButton';
+import DefaultButton from './components/DefaultButton';
 
 <DefaultButton label='Login' onPress={login} />;
 ```
 
-On some other screen, I have another button that has a purple background color (instead of my _default_ green). No big deal, I just change the `DefaultButton` so it accepts passing a `baseStyle` through `props`.
+On some other screen, I have another button that has a **purple** background color (instead of my _default_ **green**). No big deal, I just change the `DefaultButton` so it accepts passing a `baseStyle` through `props`.
 
 ```js
 // src/components/DefaultButton
@@ -75,16 +75,16 @@ const DefaultButton = (props) => {
 Now I just have to update the `baseStyle` on that particular screen. If it happens to be used in another place, I should probably move the styling to a `SecondaryButton` component and use that in all places. But it's okay for now.
 
 ```js
-import DefaultButton from 'src/components/DefaultButton';
+import DefaultButton from './components/DefaultButton';
 
 <DefaultButton
   label='Edit profile'
   onPress={editProfile}
-  baseStyle={{ backgroundColor: '#8300bf' }}
+  baseStyle={{ backgroundColor: '#8300bf' }} // purple
 />;
 ```
 
-A couple of days pass and when starting the work on a new app screen, I observe that the designer added a little arrow along the text of the _default_ green button.
+A couple of days pass and when starting the work on a new app screen, I observe that the designer added a little arrow along the text of the _default_ **green** button.
 
 > [insert img2]
 
@@ -111,26 +111,26 @@ const styles = StyleSheet.create({
 })
 ```
 
-Let's complicate the situation so it feels more like real life and less like a proof of concept. I've got some more button layouts:
+Now, let's complicate the example so it feels more like a real life situation and less like a proof of concept. I've got some more button layouts:
 
-- icon on the _left_
-- icon on _top_ and the text below
-- _subtitle_ underneath the _title_
-- full-width button with the _subtitle_ right next to the _title_
+- _icon_ on the left, _label_ right next to it
+- _icon_ on top, _label_ below
+- _subtitle_ underneath the _label_
+- full-width button with the _subtitle_ right next to the _label_
 
 It becomes really hard to fit all this new logic into my component and keep it readable (and also usable!) at the same time. And as Donald Knuth once said,
 
 > Programs are meant to be read by humans and only incidentally for computers to execute. (The Art of Computer Programming, 1968)
 
-One solution is to split the button into multiple components, one for each button type - `DefaultButton`, `SecondaryButton`, `ColumnButton`, `FullWidthButton`. And that works.
+One solution is to split the button into multiple components, one for each button type - `DefaultButton`, `SecondaryButton`, `ColumnButton`, `FullWidthButton`. And that works. But upon a closer look, I can identify a couple of issues with this approach.
 
-Issue 1: If at some point I have to change a shared look and behavior, I get into trouble again. To switch from `TouchableOpacity` to `TouchableHighlight`, or change the `activeOpacity` value, I have to go in and change all my components.
+1. All the components above share design and functionality (not in terms of code, but rather shared as in common design and functionality). If at some point I have to change a part of this shared look or behavior, I get into trouble again. To switch from `TouchableOpacity` to `TouchableHighlight`, for example, or change the `activeOpacity` value, I have to go in and change all my components.
 
-Issue 2: A colleague of mine has to build another button that kind of looks like the ones we built so far, but not _exactly_ like that. He goes ahead and builds another component, from scratch, trying to replicate the shared look and behavior, but also adding the new functionality in.
+2. A colleague of mine has to build another button that kind of looks like the ones we built so far, but not _exactly_ like that. He goes ahead and builds another component, from scratch, trying to replicate the shared look and behavior, but also adding the new functionality in.
 
-The point is, as you might see, it can get pretty messy. And it's just a button.
+The point is, as you might see, it can get pretty messy and inefficient. And it's just a button.
 
-Now, let's first make the simple things _not_ messy, following the the [guiding principles]():
+Now, let's first make the simple things _not_ messy, following the the [guiding principles](https://github.com/backpackerds/readme#guiding-principles). A UI component must be:
 
 - consistent
 - composable
