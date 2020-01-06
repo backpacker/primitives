@@ -8,7 +8,9 @@
 
 I want to build a button.
 
-> [insert img1]
+<p align="center">
+  <img height="200" src="./assets/button_1.jpg">
+</p>
 
 I ask for the design, take a quick look and I start coding something along these lines:
 
@@ -86,7 +88,9 @@ import DefaultButton from './components/DefaultButton';
 
 A couple of days pass and when starting the work on a new app screen, I observe that the designer added a little arrow along the text of the _default_ **green** button.
 
-> [insert img2]
+<p align="center">
+  <img height="200" src="./assets/button_2.jpg">
+</p>
 
 I go ahead and update the `DefaultButton` component.
 
