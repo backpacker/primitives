@@ -15,6 +15,7 @@ module.exports = {
     'no-underscore-dangle': 0,
     'import/no-extraneous-dependencies': 0,
     'import/prefer-default-export': 0,
-    'react/jsx-closing-bracket-location': 0
+    'react/jsx-closing-bracket-location': 0,
+    'react/jsx-filename-extension': 0
   }
 };

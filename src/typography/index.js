@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import BaseText from './base';
+import ConfigContext from '../config-context';
 import config from '../config';
 
-const makeHeadingComponent = (fontSize) => {
-  return ({ children, ...rest }) => (
-    <BaseText fontSize={fontSize} {...rest}>
-      {children}
-    </BaseText>
-  );
+const fontSizeArr = config[config.activeTheme].fontSize;
+
+const makeHeadingComponent = (index) => {
+  return ({ children, ...rest }) => {
+    const { theme } = useContext(ConfigContext);
+    const { fontSize } = theme;
+
+    return (
+      <BaseText fontSize={fontSize[index]} {...rest}>
+        {children}
+      </BaseText>
+    );
+  };
 };
 
-const { fontSize } = config.typography;
-const [H6, H5, H4, H3, H2, H1] = Object.keys(fontSize).map((key) => makeHeadingComponent(fontSize[key]));
+const [H1, H2, H3, H4, H5, H6, H7, H8] = fontSizeArr.map((_, index) =>
+  makeHeadingComponent(index)
+);
 
-export { BaseText, H6, H5, H4, H3, H2, H1 };
+export { BaseText, H1, H2, H3, H4, H5, H6, H7, H8 };

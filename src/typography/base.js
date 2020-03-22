@@ -1,53 +1,64 @@
-import React, { PureComponent } from 'react';
+import React, { useContext } from 'react';
 import { Text } from 'react-native';
 
-import { ConfigConsumer } from '../config-context';
+import ConfigContext from '../config-context';
 import { makeStyle } from '../utils/style';
 
-class BaseText extends PureComponent {
-  render() {
-    const {
-      children,
-      uppercase,
-      underline,
-      strikeout,
-      semibold,
-      bold,
-      fontWeight,
-      fontSize,
-      center,
-      color,
-      ...rest
-    } = this.props;
+const BaseText = (props) => {
+  const {
+    children,
 
-    return (
-      <ConfigConsumer>
-        {({ config }) => {
-          const { typography, colorScheme } = config;
+    uppercase,
+    underline,
+    strikeout,
 
-          const baseStyle = makeStyle([
-            {
-              fontFamily: typography.fontFamily.default,
-              fontWeight: typography.fontWeight.normal,
-              color: colorScheme.text.default
-            },
-            uppercase && { textTransform: 'uppercase' },
-            underline && { textDecorationLine: 'underline' },
-            strikeout && { textDecorationLine: 'line-through' },
-            semibold && { fontWeight: typography.fontWeight.semibold },
-            bold && { fontWeight: typography.fontWeight.bold },
-            fontWeight && { fontWeight: typography.fontWeight[fontWeight] },
-            fontSize && { fontSize },
-            center && { textAlign: 'center' },
-            color && { color },
-            { ...rest }
-          ]);
+    extralight,
+    thin,
+    light,
+    medium,
+    semibold,
+    bold,
+    heavy,
+    extraheavy,
 
-          return <Text style={baseStyle}>{children}</Text>;
-        }}
-      </ConfigConsumer>
-    );
-  }
-}
+    fontSize,
+    center,
+    color,
+
+    ...rest
+  } = props;
+
+  const { theme } = useContext(ConfigContext);
+  const { fontFamily, fontWeight, colors, weights } = theme;
+
+  const baseStyle = makeStyle([
+    {
+      fontFamily,
+      fontWeight: weights[fontWeight],
+      color: colors.text,
+      textAlign: 'left'
+    },
+    uppercase && { textTransform: 'uppercase' },
+    underline && { textDecorationLine: 'underline' },
+    strikeout && { textDecorationLine: 'line-through' },
+    center && { textAlign: 'center' },
+
+    extralight && { fontWeight: weights.extralight },
+    thin && { fontWeight: weights.thin },
+    light && { fontWeight: weights.light },
+    medium && { fontWeight: weights.medium },
+    semibold && { fontWeight: weights.semibold },
+    bold && { fontWeight: weights.bold },
+    heavy && { fontWeight: weights.heavy },
+    extraheavy && { fontWeight: weights.extraheavy },
+
+    fontSize && { fontSize },
+    color && { color },
+
+    { ...rest }
+  ]);
+
+  return <Text style={baseStyle}>{children}</Text>;
+};
 
 export default BaseText;

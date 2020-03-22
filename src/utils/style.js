@@ -1,9 +1,7 @@
-import { filterFalsy } from './arr'
+import { StyleSheet } from 'react-native';
 
 const makeStyle = (styleArr = []) => {
-  return filterFalsy(styleArr)
-}
+  return StyleSheet.flatten(styleArr);
+};
 
-export {
-  makeStyle
-}
+export { makeStyle };

@@ -2,7 +2,7 @@ import React from 'react';
 
 import BaseLayout from './base';
 
-const FloatLayout = (props) => {
+const Float = (props) => {
   const { children, ...rest } = props;
 
   return (
@@ -12,4 +12,4 @@ const FloatLayout = (props) => {
   );
 };
 
-export default FloatLayout;
+export default Float;

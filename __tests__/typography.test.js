@@ -2,7 +2,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import { BaseText, H1, ConfigProvider } from '../index';
+import { BaseText } from '../src/typography';
+import { H1, ConfigProvider } from '../index';
 
 describe('<BaseText>', () => {
   it('should render Alan Turing; default formatting', () => {
@@ -40,11 +41,11 @@ describe('<BaseText>', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should render Alan Turing; fontWeight={thin} fontSize={18} color={#FFF}', () => {
+  it('should render Alan Turing; thin fontSize={18} color={#FFF}', () => {
     const tree = renderer
       .create(
         <ConfigProvider>
-          <BaseText fontWeight='thin' fontSize={18} color='#FFF'>
+          <BaseText thin fontSize={18} color='#FFF'>
             Alan Turing
           </BaseText>
         </ConfigProvider>

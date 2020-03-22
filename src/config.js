@@ -7,7 +7,7 @@ const weights = {
   semibold: '600',
   bold: '700',
   heavy: '800',
-  black: '900'
+  extraheavy: '900'
 };
 
 const defaultTheme = {
@@ -15,14 +15,14 @@ const defaultTheme = {
   fontWeight: 'normal',
   fontFamily: undefined,
   weights,
-  spacer: [26, 22, 18, 14, 10, 6],
+  spacer: [10, 14, 16, 18, 20, 25],
   colors: {
     brand: '#28D9AA',
     background: '#FFF',
     text: '#000'
   },
   isDark: false
-}
+};
 
 const darkTheme = {
   ...defaultTheme,
@@ -32,10 +32,10 @@ const darkTheme = {
     text: '#FFF'
   },
   isDark: true
-}
+};
 
 export default {
   activeTheme: 'default',
   default: defaultTheme,
   dark: darkTheme
-}
+};

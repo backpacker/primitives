@@ -3,17 +3,12 @@
 exports[`<BaseText> should render Alan Turing; bold 1`] = `
 <Text
   style={
-    Array [
-      Object {
-        "color": "#000",
-        "fontFamily": "Helvetica",
-        "fontWeight": "400",
-      },
-      Object {
-        "fontWeight": "700",
-      },
-      Object {},
-    ]
+    Object {
+      "color": "#000",
+      "fontFamily": undefined,
+      "fontWeight": "700",
+      "textAlign": "left",
+    }
   }
 >
   Alan Turing
@@ -23,40 +18,28 @@ exports[`<BaseText> should render Alan Turing; bold 1`] = `
 exports[`<BaseText> should render Alan Turing; default formatting 1`] = `
 <Text
   style={
-    Array [
-      Object {
-        "color": "#000",
-        "fontFamily": "Helvetica",
-        "fontWeight": "400",
-      },
-      Object {},
-    ]
+    Object {
+      "color": "#000",
+      "fontFamily": undefined,
+      "fontWeight": "400",
+      "textAlign": "left",
+    }
   }
 >
   Alan Turing
 </Text>
 `;
 
-exports[`<BaseText> should render Alan Turing; fontWeight={thin} fontSize={18} color={#FFF} 1`] = `
+exports[`<BaseText> should render Alan Turing; thin fontSize={18} color={#FFF} 1`] = `
 <Text
   style={
-    Array [
-      Object {
-        "color": "#000",
-        "fontFamily": "Helvetica",
-        "fontWeight": "400",
-      },
-      Object {
-        "fontWeight": "200",
-      },
-      Object {
-        "fontSize": 18,
-      },
-      Object {
-        "color": "#FFF",
-      },
-      Object {},
-    ]
+    Object {
+      "color": "#FFF",
+      "fontFamily": undefined,
+      "fontSize": 18,
+      "fontWeight": "200",
+      "textAlign": "left",
+    }
   }
 >
   Alan Turing
@@ -66,29 +49,14 @@ exports[`<BaseText> should render Alan Turing; fontWeight={thin} fontSize={18} c
 exports[`<BaseText> should render Alan Turing; uppercase underline strikeout semibold center 1`] = `
 <Text
   style={
-    Array [
-      Object {
-        "color": "#000",
-        "fontFamily": "Helvetica",
-        "fontWeight": "400",
-      },
-      Object {
-        "textTransform": "uppercase",
-      },
-      Object {
-        "textDecorationLine": "underline",
-      },
-      Object {
-        "textDecorationLine": "line-through",
-      },
-      Object {
-        "fontWeight": "600",
-      },
-      Object {
-        "textAlign": "center",
-      },
-      Object {},
-    ]
+    Object {
+      "color": "#000",
+      "fontFamily": undefined,
+      "fontWeight": "600",
+      "textAlign": "center",
+      "textDecorationLine": "line-through",
+      "textTransform": "uppercase",
+    }
   }
 >
   Alan Turing
@@ -98,17 +66,13 @@ exports[`<BaseText> should render Alan Turing; uppercase underline strikeout sem
 exports[`<H1> should render Alan Turing 1`] = `
 <Text
   style={
-    Array [
-      Object {
-        "color": "#000",
-        "fontFamily": "Helvetica",
-        "fontWeight": "400",
-      },
-      Object {
-        "fontSize": 32,
-      },
-      Object {},
-    ]
+    Object {
+      "color": "#000",
+      "fontFamily": undefined,
+      "fontSize": 32,
+      "fontWeight": "400",
+      "textAlign": "left",
+    }
   }
 >
   Alan Turing

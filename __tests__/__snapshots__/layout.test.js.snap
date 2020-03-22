@@ -3,47 +3,35 @@
 exports[`<Column> should render two H1 elements in column layout, centered 1`] = `
 <View
   style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "justifyContent": "center",
-      },
-      Object {
-        "flexDirection": "column",
-      },
-    ]
+    Object {
+      "alignItems": "center",
+      "flexDirection": "column",
+      "justifyContent": "center",
+    }
   }
 >
   <Text
     style={
-      Array [
-        Object {
-          "color": "#000",
-          "fontFamily": "Helvetica",
-          "fontWeight": "400",
-        },
-        Object {
-          "fontSize": 32,
-        },
-        Object {},
-      ]
+      Object {
+        "color": "#000",
+        "fontFamily": undefined,
+        "fontSize": 32,
+        "fontWeight": "400",
+        "textAlign": "left",
+      }
     }
   >
     Brian Kernighan
   </Text>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#000",
-          "fontFamily": "Helvetica",
-          "fontWeight": "400",
-        },
-        Object {
-          "fontSize": 32,
-        },
-        Object {},
-      ]
+      Object {
+        "color": "#000",
+        "fontFamily": undefined,
+        "fontSize": 32,
+        "fontWeight": "400",
+        "textAlign": "left",
+      }
     }
   >
     Dennis Ritchie
@@ -54,44 +42,34 @@ exports[`<Column> should render two H1 elements in column layout, centered 1`] =
 exports[`<Float> should render two H1 elements in float layout 1`] = `
 <View
   style={
-    Array [
-      Object {
-        "position": "absolute",
-        "zIndex": 1,
-      },
-    ]
+    Object {
+      "position": "absolute",
+      "zIndex": 1,
+    }
   }
 >
   <Text
     style={
-      Array [
-        Object {
-          "color": "#000",
-          "fontFamily": "Helvetica",
-          "fontWeight": "400",
-        },
-        Object {
-          "fontSize": 32,
-        },
-        Object {},
-      ]
+      Object {
+        "color": "#000",
+        "fontFamily": undefined,
+        "fontSize": 32,
+        "fontWeight": "400",
+        "textAlign": "left",
+      }
     }
   >
     Brian Kernighan
   </Text>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#000",
-          "fontFamily": "Helvetica",
-          "fontWeight": "400",
-        },
-        Object {
-          "fontSize": 32,
-        },
-        Object {},
-      ]
+      Object {
+        "color": "#000",
+        "fontFamily": undefined,
+        "fontSize": 32,
+        "fontWeight": "400",
+        "textAlign": "left",
+      }
     }
   >
     Dennis Ritchie
@@ -102,45 +80,33 @@ exports[`<Float> should render two H1 elements in float layout 1`] = `
 exports[`<Row> should render two H1 elements in row layout 1`] = `
 <View
   style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "flexDirection": "row",
-        "justifyContent": "space-between",
-      },
-    ]
+    Object {
+      "flexDirection": "row",
+    }
   }
 >
   <Text
     style={
-      Array [
-        Object {
-          "color": "#000",
-          "fontFamily": "Helvetica",
-          "fontWeight": "400",
-        },
-        Object {
-          "fontSize": 32,
-        },
-        Object {},
-      ]
+      Object {
+        "color": "#000",
+        "fontFamily": undefined,
+        "fontSize": 32,
+        "fontWeight": "400",
+        "textAlign": "left",
+      }
     }
   >
     Brian Kernighan
   </Text>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#000",
-          "fontFamily": "Helvetica",
-          "fontWeight": "400",
-        },
-        Object {
-          "fontSize": 32,
-        },
-        Object {},
-      ]
+      Object {
+        "color": "#000",
+        "fontFamily": undefined,
+        "fontSize": 32,
+        "fontWeight": "400",
+        "textAlign": "left",
+      }
     }
   >
     Dennis Ritchie

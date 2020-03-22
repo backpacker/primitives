@@ -1,7 +1,7 @@
 const filterFalsy = (arr = []) => {
-  return arr.filter(Boolean)
-}
+  return arr.filter(Boolean);
+};
 
-export {
-  filterFalsy
-}
+const middle = (arr = []) => arr[arr.length / 2 - 1];
+
+export { filterFalsy, middle };

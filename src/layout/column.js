@@ -2,7 +2,7 @@ import React from 'react';
 
 import BaseLayout from './base';
 
-const ColumnLayout = (props) => {
+const Column = (props) => {
   const { children, ...rest } = props;
 
   return (
@@ -12,4 +12,4 @@ const ColumnLayout = (props) => {
   );
 };
 
-export default ColumnLayout;
+export default Column;

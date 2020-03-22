@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View } from 'react-native';
 
-import { ConfigConsumer } from '../config-context';
+import ConfigContext from '../config-context';
 import { makeStyle } from '../utils/style';
+import { middle } from '../utils/arr';
 
 const getDimensions = (size) => {
   return {
@@ -12,29 +13,17 @@ const getDimensions = (size) => {
 };
 
 const Spacer = (props) => {
-  const { fullWidth, isDebug, ...rest } = props;
+  const { size, fullWidth, ...rest } = props;
+  const { theme } = useContext(ConfigContext);
+  const { spacer } = theme;
 
-  return (
-    <ConfigConsumer>
-      {({ config }) => {
-        const { spacer } = config;
+  const baseStyle = makeStyle([
+    getDimensions(size ? spacer[size] : middle(spacer)),
+    fullWidth && { width: '100%' },
+    { ...rest }
+  ]);
 
-        const allSizes = Object.keys(spacer).map((key) => {
-          return props[key] && getDimensions(spacer[key]);
-        });
-
-        const baseStyle = makeStyle([
-          getDimensions(spacer.default),
-          fullWidth && { width: '100%' },
-          isDebug && { backgroundColor: 'pink' },
-          ...allSizes,
-          { ...rest }
-        ]);
-
-        return <View style={baseStyle} />;
-      }}
-    </ConfigConsumer>
-  );
+  return <View style={baseStyle} />;
 };
 
 export default Spacer;

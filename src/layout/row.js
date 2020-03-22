@@ -2,18 +2,14 @@ import React from 'react';
 
 import BaseLayout from './base';
 
-const RowLayout = (props) => {
+const Row = (props) => {
   const { children, ...rest } = props;
 
   return (
-    <BaseLayout
-      flexDirection='row'
-      justifyContent='space-between'
-      alignItems='center'
-      {...rest}>
+    <BaseLayout flexDirection='row' {...rest}>
       {children}
     </BaseLayout>
   );
 };
 
-export default RowLayout;
+export default Row;
