@@ -1,12 +1,23 @@
 {
   "name": "@backpackerds/primitives",
   "version": "0.1.0",
-  "description": "Atomic components for React-Native",
+  "description": "UI primitives for React-Native",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "test-coverage": "jest --coverage",
-    "commit": "git cz"
+    "test": "./node_modules/.bin/jest",
+    "lint": "./node_modules/.bin/eslint . --ext=jsx --ext=js",
+    "lint-staged": "./node_modules/.bin/lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "./node_modules/.bin/prettier --write",
+      "./node_modules/.bin/eslint"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "repository": {
     "type": "git",
@@ -19,22 +30,23 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "@semantic-release/git": "^7.0.18",
-    "commitizen": "^4.0.3",
-    "cz-conventional-changelog": "3.0.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-import": "2.20.1",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-react": "7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "husky": "^4.2.3",
     "jest": "^24.9.0",
+    "lint-staged": "^10.0.8",
     "metro-react-native-babel-preset": "^0.56.0",
+    "prettier": "^2.0.1",
     "react": "16.9.0",
     "react-native": "0.61.5",
-    "react-test-renderer": "^16.12.0",
-    "semantic-release": "^15.14.0"
+    "react-test-renderer": "^16.12.0"
   },
   "dependencies": {
     "lodash.merge": "^4.6.2"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }
