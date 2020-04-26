@@ -22,5 +22,5 @@ jobs:
         uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
-      - if: steps.publish.type != 'none'
-        run: git tag ${{ steps.publish.version }}
+      - if: steps.publish.outputs.type != 'none'
+        run: git tag ${{ steps.publish.outputs.version }}
