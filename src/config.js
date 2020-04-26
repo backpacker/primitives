@@ -49,6 +49,8 @@ const darkTheme = {
   isDark: true
 };
 
+export { defaultTheme };
+
 export default {
   activeTheme: 'default',
   default: defaultTheme,
