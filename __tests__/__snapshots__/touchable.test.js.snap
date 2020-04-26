@@ -1,41 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Touchable> should render a disabled touchable component 1`] = `
-<View
-  accessible={true}
-  focusable={true}
-  isTVSelectable={true}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  style={
-    Object {
-      "opacity": 1,
-    }
-  }
+<TouchableOpacity
+  activeOpacity={0.5}
+  disabled={true}
+  onPress={[Function]}
+  style={Object {}}
 />
 `;
 
 exports[`<Touchable> should render a touchable component 1`] = `
-<View
-  accessible={true}
-  focusable={true}
-  isTVSelectable={true}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  style={
-    Object {
-      "opacity": 1,
-    }
-  }
+<TouchableOpacity
+  activeOpacity={0.5}
+  onPress={[Function]}
+  style={Object {}}
 />
 `;
