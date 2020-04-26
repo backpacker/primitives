@@ -3,7 +3,6 @@ import { View } from 'react-native';
 
 import ConfigContext from '../config-context';
 import { makeStyle } from '../utils/style';
-import { middle } from '../utils/arr';
 
 const getDimensions = (size) => {
   return {
@@ -13,12 +12,12 @@ const getDimensions = (size) => {
 };
 
 const Spacer = (props) => {
-  const { size, fullWidth, ...rest } = props;
+  const { size = 'm', fullWidth, ...rest } = props;
   const { theme } = useContext(ConfigContext);
   const { spacer } = theme;
 
   const baseStyle = makeStyle([
-    getDimensions(size ? spacer[size] : middle(spacer)),
+    getDimensions(spacer[size]),
     fullWidth && { width: '100%' },
     { ...rest }
   ]);

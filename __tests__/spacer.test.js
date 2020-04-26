@@ -2,7 +2,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import { ConfigProvider, Spacer } from '../index';
+import { ConfigProvider } from '../src/config-context';
+import { Spacer } from '../src/spacer';
 
 describe('<Spacer>', () => {
   it('should render spacer - default size', () => {

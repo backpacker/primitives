@@ -16,7 +16,6 @@ exports[`<Column> should render two H1 elements in column layout, centered 1`] =
         "color": "#000",
         "fontFamily": undefined,
         "fontSize": 32,
-        "fontWeight": "400",
         "textAlign": "left",
       }
     }
@@ -29,7 +28,6 @@ exports[`<Column> should render two H1 elements in column layout, centered 1`] =
         "color": "#000",
         "fontFamily": undefined,
         "fontSize": 32,
-        "fontWeight": "400",
         "textAlign": "left",
       }
     }
@@ -54,7 +52,6 @@ exports[`<Float> should render two H1 elements in float layout 1`] = `
         "color": "#000",
         "fontFamily": undefined,
         "fontSize": 32,
-        "fontWeight": "400",
         "textAlign": "left",
       }
     }
@@ -67,7 +64,6 @@ exports[`<Float> should render two H1 elements in float layout 1`] = `
         "color": "#000",
         "fontFamily": undefined,
         "fontSize": 32,
-        "fontWeight": "400",
         "textAlign": "left",
       }
     }
@@ -91,7 +87,6 @@ exports[`<Row> should render two H1 elements in row layout 1`] = `
         "color": "#000",
         "fontFamily": undefined,
         "fontSize": 32,
-        "fontWeight": "400",
         "textAlign": "left",
       }
     }
@@ -104,7 +99,6 @@ exports[`<Row> should render two H1 elements in row layout 1`] = `
         "color": "#000",
         "fontFamily": undefined,
         "fontSize": 32,
-        "fontWeight": "400",
         "textAlign": "left",
       }
     }

@@ -21,7 +21,6 @@ exports[`<BaseText> should render Alan Turing; default formatting 1`] = `
     Object {
       "color": "#000",
       "fontFamily": undefined,
-      "fontWeight": "400",
       "textAlign": "left",
     }
   }
@@ -70,7 +69,6 @@ exports[`<H1> should render Alan Turing 1`] = `
       "color": "#000",
       "fontFamily": undefined,
       "fontSize": 32,
-      "fontWeight": "400",
       "textAlign": "left",
     }
   }

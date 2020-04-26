@@ -4,8 +4,8 @@ exports[`<Spacer> should render spacer - default size 1`] = `
 <View
   style={
     Object {
-      "height": 16,
-      "width": 16,
+      "height": 18,
+      "width": 18,
     }
   }
 />

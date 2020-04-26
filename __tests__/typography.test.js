@@ -2,8 +2,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import { BaseText } from '../src/typography';
-import { H1, ConfigProvider } from '../index';
+import { ConfigProvider } from '../src/config-context';
+import { BaseText, H1 } from '../src/typography';
 
 describe('<BaseText>', () => {
   it('should render Alan Turing; default formatting', () => {

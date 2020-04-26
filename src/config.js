@@ -11,11 +11,26 @@ const weights = {
 };
 
 const defaultTheme = {
-  fontSize: [32, 24, 20, 16, 14, 12, 10, 8],
-  fontWeight: 'normal',
+  fontSize: {
+    h1: 32,
+    h2: 24,
+    h3: 20,
+    h4: 16,
+    h5: 14,
+    h6: 12,
+    h7: 10,
+    h8: 8
+  },
+  fontWeight: weights.normal,
   fontFamily: undefined,
   weights,
-  spacer: [10, 14, 16, 18, 20, 25],
+  spacer: {
+    xs: 10,
+    s: 14,
+    m: 18,
+    l: 22,
+    xl: 26
+  },
   colors: {
     brand: '#28D9AA',
     background: '#FFF',

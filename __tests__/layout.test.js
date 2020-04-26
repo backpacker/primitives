@@ -2,7 +2,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import { ConfigProvider, Column, Row, Float, H1 } from '../index';
+import { ConfigProvider } from '../src/config-context';
+import { Column, Row, Float } from '../src/layout';
+import { H1 } from '../src/typography';
 
 describe('<Column>', () => {
   it('should render two H1 elements in column layout, centered', () => {

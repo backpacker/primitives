@@ -2,7 +2,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import { Touchable } from '../index';
+import { Touchable } from '../src/touchable';
 
 describe('<Touchable>', () => {
   it('should render a touchable component', () => {

@@ -29,12 +29,11 @@ const BaseText = (props) => {
   } = props;
 
   const { theme } = useContext(ConfigContext);
-  const { fontFamily, fontWeight, colors, weights } = theme;
+  const { fontFamily, colors, weights } = theme;
 
   const baseStyle = makeStyle([
     {
       fontFamily,
-      fontWeight: weights[fontWeight],
       color: colors.text,
       textAlign: 'left'
     },
