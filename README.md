@@ -42,13 +42,18 @@ const Root = () => {
 */
 
 // screens/hello.js
-import { H1, Touchable } from '@backpackerds/primitives';
+import { Row, H1, H3, Spacer, Touchable } from '@backpackerds/primitives';
 
 const MyComponent = (props) => {
   const sayHello = () => console.log('Hi! 👋');
+
   return (
     <Touchable onPress={sayHello}>
-      <H1 uppercase>Hello!</H1>
+      <Row>
+        <H1 uppercase>Hello!</H1>
+        <Spacer size='l' />
+        <H3>Tap here</H3>
+      </Row>
     </Touchable>
   );
 };
