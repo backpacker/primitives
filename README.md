@@ -1,5 +1,7 @@
 # primitives
 
+> Foundational components for React Native UI
+
 [![npm version](https://img.shields.io/npm/v/@backpackerds/primitives)](https://www.npmjs.com/package/@backpackerds/primitives)
 ![Build](https://github.com/backpackerds/primitives/workflows/tests/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/backpackerds/primitives/badge.svg?branch=master)](https://coveralls.io/github/backpackerds/primitives?branch=master)
