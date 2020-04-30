@@ -9,3 +9,6 @@ A good entry follows the following format:
 
 Headers are one of:
 - `Added`, `Changed`, `Removed` or `Fixed`.
+
+## [1.0.0]
+🚀 Initial release. Contains `Layout`, `Typography`, `Spacer`, `Touchable` `Expandable` and `Modal` primitives.
