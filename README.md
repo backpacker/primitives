@@ -12,6 +12,12 @@
 1. [What are primitives](#what-are-primitives)
 1. [How to adopt in your project](#how-to-adopt-in-your-project)
 1. [Primitives API](#primitives-api)
+    1. [Layout](#layout)
+    1. [Typography](#typography)
+    1. [Spacer](#spacer)
+    1. [Touchable](#touchable)
+    1. [Expandable](#expandable)
+    1. [Modal](#modal)
 1. [Custom themes](#custom-themes)
 1. [Contributing](#contributing)
 
