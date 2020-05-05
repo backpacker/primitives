@@ -176,7 +176,7 @@ import { Expandable } from '@backpackerds/primitives'
 <Expandable
   renderHeader={({ isVisible }) => <Row><H1>Expand me!</H1></Row>}>
   ...
-</Touchable>
+</Expandable>
 ```
 
 The `Expandable` primitive uses `LayoutAnimation` for a smooth expand/collapse of the content.
