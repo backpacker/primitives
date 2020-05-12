@@ -1,6 +1,6 @@
 {
   "name": "@backpackerds/primitives",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "UI primitives for React-Native",
   "author": "Calin Tamas <calinntamas@gmail.com>",
   "main": "index.js",
@@ -47,8 +47,10 @@
     "react-test-renderer": "^16.12.0"
   },
   "dependencies": {
-    "lodash.merge": "^4.6.2",
-    "react": "16.9.0",
-    "react-native": "0.61.5"
+    "lodash.merge": "^4.6.2"
+  },
+  "peerDependencies": {
+    "react": ">= 16.9.0",
+    "react-native": ">= 0.59.0"
   }
 }
