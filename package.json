@@ -1,5 +1,5 @@
 {
-  "name": "@backpackerds/primitives",
+  "name": "@backpacker/primitives",
   "version": "1.0.1",
   "description": "UI primitives for React-Native",
   "author": "Calin Tamas <calinntamas@gmail.com>",
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:backpackerds/primitives.git"
+    "url": "git@github.com:backpacker/primitives.git"
   },
   "keywords": [
     "atomic-design",
