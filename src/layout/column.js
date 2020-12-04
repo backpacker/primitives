@@ -12,4 +12,7 @@ const Column = (props) => {
   );
 };
 
+Column.propTypes = BaseLayout.propTypes;
+Column.defaultProps = BaseLayout.defaultProps;
+
 export default Column;
