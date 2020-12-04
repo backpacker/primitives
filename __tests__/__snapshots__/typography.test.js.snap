@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<BaseText> should render Alan Turing; bold 1`] = `
+exports[`<Text> should render Alan Turing; bold 1`] = `
 <Text
   style={
     Object {
@@ -15,7 +15,7 @@ exports[`<BaseText> should render Alan Turing; bold 1`] = `
 </Text>
 `;
 
-exports[`<BaseText> should render Alan Turing; default formatting 1`] = `
+exports[`<Text> should render Alan Turing; default formatting 1`] = `
 <Text
   style={
     Object {
@@ -29,7 +29,7 @@ exports[`<BaseText> should render Alan Turing; default formatting 1`] = `
 </Text>
 `;
 
-exports[`<BaseText> should render Alan Turing; thin fontSize={18} color={#FFF} 1`] = `
+exports[`<Text> should render Alan Turing; thin fontSize={18} color={#FFF} 1`] = `
 <Text
   style={
     Object {
@@ -45,7 +45,7 @@ exports[`<BaseText> should render Alan Turing; thin fontSize={18} color={#FFF} 1
 </Text>
 `;
 
-exports[`<BaseText> should render Alan Turing; uppercase underline strikeout semibold center 1`] = `
+exports[`<Text> should render Alan Turing; uppercase underline strikeout semibold center 1`] = `
 <Text
   style={
     Object {

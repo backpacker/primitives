@@ -3,7 +3,7 @@ import ConfigContext, {
   ConfigConsumer
 } from './src/config-context';
 import { defaultTheme } from './src/config';
-import { H1, H2, H3, H4, H5, H6, H7, H8 } from './src/typography';
+import { Text, H1, H2, H3, H4, H5, H6, H7, H8 } from './src/typography';
 import { Column, Row, Float } from './src/layout';
 import { Spacer } from './src/spacer';
 import { Touchable } from './src/touchable';
@@ -15,6 +15,7 @@ export {
   ConfigProvider,
   ConfigConsumer,
   defaultTheme,
+  Text,
   H1,
   H2,
   H3,
