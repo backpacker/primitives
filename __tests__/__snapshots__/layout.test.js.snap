@@ -2,6 +2,7 @@
 
 exports[`<Column> should render two H1 elements in column layout, centered 1`] = `
 <View
+  onLayout={[Function]}
   style={
     Object {
       "alignItems": "center",
@@ -39,6 +40,7 @@ exports[`<Column> should render two H1 elements in column layout, centered 1`] =
 
 exports[`<Float> should render two H1 elements in float layout 1`] = `
 <View
+  onLayout={[Function]}
   style={
     Object {
       "position": "absolute",
@@ -75,6 +77,7 @@ exports[`<Float> should render two H1 elements in float layout 1`] = `
 
 exports[`<Row> should render two H1 elements in row layout 1`] = `
 <View
+  onLayout={[Function]}
   style={
     Object {
       "flexDirection": "row",

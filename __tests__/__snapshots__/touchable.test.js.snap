@@ -12,6 +12,7 @@ exports[`<Touchable> should render a disabled touchable component 1`] = `
 exports[`<Touchable> should render a touchable component 1`] = `
 <TouchableOpacity
   activeOpacity={0.5}
+  disabled={false}
   onPress={[Function]}
   style={Object {}}
 />

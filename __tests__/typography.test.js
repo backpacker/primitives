@@ -3,14 +3,14 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 
 import { ConfigProvider } from '../src/config-context';
-import { BaseText, H1 } from '../src/typography';
+import { Text, H1 } from '../src/typography';
 
-describe('<BaseText>', () => {
+describe('<Text>', () => {
   it('should render Alan Turing; default formatting', () => {
     const tree = renderer
       .create(
         <ConfigProvider>
-          <BaseText>Alan Turing</BaseText>
+          <Text>Alan Turing</Text>
         </ConfigProvider>
       )
       .toJSON();
@@ -21,7 +21,7 @@ describe('<BaseText>', () => {
     const tree = renderer
       .create(
         <ConfigProvider>
-          <BaseText bold>Alan Turing</BaseText>
+          <Text bold>Alan Turing</Text>
         </ConfigProvider>
       )
       .toJSON();
@@ -32,9 +32,9 @@ describe('<BaseText>', () => {
     const tree = renderer
       .create(
         <ConfigProvider>
-          <BaseText uppercase underline strikeout semibold center>
+          <Text uppercase underline strikeout semibold center>
             Alan Turing
-          </BaseText>
+          </Text>
         </ConfigProvider>
       )
       .toJSON();
@@ -45,9 +45,9 @@ describe('<BaseText>', () => {
     const tree = renderer
       .create(
         <ConfigProvider>
-          <BaseText thin fontSize={18} color='#FFF'>
+          <Text thin fontSize={18} color='#FFF'>
             Alan Turing
-          </BaseText>
+          </Text>
         </ConfigProvider>
       )
       .toJSON();

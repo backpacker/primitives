@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
-import { Text } from 'react-native';
+import { Text as RNText } from 'react-native';
 import PropTypes from 'prop-types';
 
 import ConfigContext from '../config-context';
 import { TextStylePropTypes } from '../prop-types';
 import { makeStyle } from '../utils/style';
 
-const BaseText = (props) => {
+const Text = (props) => {
   const {
     children,
 
@@ -54,10 +54,10 @@ const BaseText = (props) => {
     { ...rest }
   ]);
 
-  return <Text style={baseStyle}>{children}</Text>;
+  return <RNText style={baseStyle}>{children}</RNText>;
 };
 
-BaseText.propTypes = {
+Text.propTypes = {
   ...TextStylePropTypes,
   center: PropTypes.bool,
   uppercase: PropTypes.bool,
@@ -73,7 +73,7 @@ BaseText.propTypes = {
   extraheavy: PropTypes.bool
 };
 
-BaseText.defaultProps = {
+Text.defaultProps = {
   center: false,
   uppercase: false,
   underline: false,
@@ -88,4 +88,4 @@ BaseText.defaultProps = {
   extraheavy: false
 };
 
-export default BaseText;
+export default Text;
