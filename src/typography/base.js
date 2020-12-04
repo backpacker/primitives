@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import { Text } from 'react-native';
+import PropTypes from 'prop-types';
 
 import ConfigContext from '../config-context';
+import { TextStylePropTypes } from '../prop-types';
 import { makeStyle } from '../utils/style';
 
 const BaseText = (props) => {
@@ -21,9 +23,7 @@ const BaseText = (props) => {
     heavy,
     extraheavy,
 
-    fontSize,
     center,
-    color,
 
     ...rest
   } = props;
@@ -51,13 +51,41 @@ const BaseText = (props) => {
     heavy && { fontWeight: weights.heavy },
     extraheavy && { fontWeight: weights.extraheavy },
 
-    fontSize && { fontSize },
-    color && { color },
-
     { ...rest }
   ]);
 
   return <Text style={baseStyle}>{children}</Text>;
+};
+
+BaseText.propTypes = {
+  ...TextStylePropTypes,
+  center: PropTypes.bool,
+  uppercase: PropTypes.bool,
+  underline: PropTypes.bool,
+  strikeout: PropTypes.bool,
+  extralight: PropTypes.bool,
+  thin: PropTypes.bool,
+  light: PropTypes.bool,
+  medium: PropTypes.bool,
+  semibold: PropTypes.bool,
+  bold: PropTypes.bool,
+  heavy: PropTypes.bool,
+  extraheavy: PropTypes.bool
+};
+
+BaseText.defaultProps = {
+  center: false,
+  uppercase: false,
+  underline: false,
+  strikeout: false,
+  extralight: false,
+  thin: false,
+  light: false,
+  medium: false,
+  semibold: false,
+  bold: false,
+  heavy: false,
+  extraheavy: false
 };
 
 export default BaseText;

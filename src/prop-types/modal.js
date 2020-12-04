@@ -1,5 +1,5 @@
 /**
- * Modal Style PropTypes
+ * Modal PropTypes
  */
 
 /**
@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import { Platform, ViewPropTypes } from 'react-native';
 
 /**
- * Defines the PropTypes for Layout Style
+ * Defines the PropTypes for Modal
  */
 export default {
   animationType: PropTypes.oneOf(['none', 'slide', 'fade']),

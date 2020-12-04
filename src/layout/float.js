@@ -12,4 +12,7 @@ const Float = (props) => {
   );
 };
 
+Float.propTypes = BaseLayout.propTypes;
+Float.defaultProps = BaseLayout.defaultProps;
+
 export default Float;

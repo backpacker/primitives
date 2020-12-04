@@ -1,7 +1,10 @@
 import React, { PureComponent } from 'react';
-import { Modal } from 'react-native';
+import { Modal as RNModal } from 'react-native';
+import PropTypes from 'prop-types';
 
-export default class BaseModal extends PureComponent {
+import { ModalPropTypes } from '../prop-types';
+
+class Modal extends PureComponent {
   constructor(props) {
     super(props);
     this.show = this.show.bind(this);
@@ -31,17 +34,32 @@ export default class BaseModal extends PureComponent {
   }
 
   render() {
-    const { children, animationType = 'fade', ...rest } = this.props;
+    const { children, animationType, ...rest } = this.props;
     const { isVisible } = this.state;
 
     return (
-      <Modal
+      <RNModal
         animationType={animationType}
         visible={isVisible}
         onRequestClose={this.hide}
         {...rest}>
         {children}
-      </Modal>
+      </RNModal>
     );
   }
 }
+
+Modal.propTypes = {
+  ...ModalPropTypes,
+  onShow: PropTypes.func,
+  onHide: PropTypes.func,
+  animationType: PropTypes.oneOf(['none', 'slide', 'fade'])
+};
+
+Modal.defaultProps = {
+  onShow: () => {},
+  onHide: () => {},
+  animationType: 'fade'
+};
+
+export default Modal;

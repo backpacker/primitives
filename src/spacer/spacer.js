@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import { View } from 'react-native';
+import { View, ViewPropTypes } from 'react-native';
+import PropTypes from 'prop-types';
 
 import ConfigContext from '../config-context';
 import { makeStyle } from '../utils/style';
@@ -12,7 +13,7 @@ const getDimensions = (size) => {
 };
 
 const Spacer = (props) => {
-  const { size = 'm', fullWidth, ...rest } = props;
+  const { size, fullWidth, ...rest } = props;
   const { theme } = useContext(ConfigContext);
   const { spacer } = theme;
 
@@ -24,5 +25,13 @@ const Spacer = (props) => {
 
   return <View style={baseStyle} />;
 };
+
+Spacer.propTypes = {
+  ...ViewPropTypes,
+  size: PropTypes.oneOf(['xs', 's', 'm', 'l', 'xl']),
+  fullWidth: PropTypes.bool
+};
+
+Spacer.defaultProps = { size: 'm', fullWidth: false };
 
 export default Spacer;

@@ -12,4 +12,7 @@ const Row = (props) => {
   );
 };
 
+Row.propTypes = BaseLayout.propTypes;
+Row.defaultProps = BaseLayout.defaultProps;
+
 export default Row;
