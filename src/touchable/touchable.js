@@ -6,7 +6,14 @@ import { TouchableStylePropTypes } from '../prop-types';
 import { makeStyle } from '../utils/style';
 
 const Touchable = (props) => {
-  const { children, onPress, isDisabled, activeOpacity, ...rest } = props;
+  const {
+    children,
+    onPress,
+    isDisabled,
+    activeOpacity,
+    testID,
+    ...rest
+  } = props;
 
   const baseStyle = makeStyle([{ ...rest }]);
 
@@ -15,7 +22,8 @@ const Touchable = (props) => {
       onPress={onPress}
       activeOpacity={activeOpacity}
       disabled={isDisabled}
-      style={baseStyle}>
+      style={baseStyle}
+      testID={testID}>
       {children}
     </TouchableOpacity>
   );

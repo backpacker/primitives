@@ -1,4 +1,4 @@
-const weights = {
+export const weights = {
   extralight: '100',
   thin: '200',
   light: '300',
