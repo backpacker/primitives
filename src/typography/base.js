@@ -25,6 +25,7 @@ const Text = (props) => {
 
     center,
 
+    testID,
     ...rest
   } = props;
 
@@ -54,7 +55,11 @@ const Text = (props) => {
     { ...rest }
   ]);
 
-  return <RNText style={baseStyle}>{children}</RNText>;
+  return (
+    <RNText style={baseStyle} testID={testID}>
+      {children}
+    </RNText>
+  );
 };
 
 Text.propTypes = {
