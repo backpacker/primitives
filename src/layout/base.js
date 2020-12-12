@@ -6,7 +6,7 @@ import { LayoutStylePropTypes } from '../prop-types';
 import { makeStyle } from '../utils/style';
 
 const BaseLayout = (props) => {
-  const { children, center, onLayout, ...rest } = props;
+  const { children, center, onLayout, testID, ...rest } = props;
 
   const baseStyle = makeStyle([
     center && {
@@ -17,7 +17,7 @@ const BaseLayout = (props) => {
   ]);
 
   return (
-    <View style={baseStyle} onLayout={onLayout}>
+    <View style={baseStyle} onLayout={onLayout} testID={testID}>
       {children}
     </View>
   );

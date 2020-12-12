@@ -13,7 +13,7 @@ const getDimensions = (size) => {
 };
 
 const Spacer = (props) => {
-  const { size, fullWidth, ...rest } = props;
+  const { size, fullWidth, testID, ...rest } = props;
   const { theme } = useContext(ConfigContext);
   const { spacer } = theme;
 
@@ -23,7 +23,7 @@ const Spacer = (props) => {
     { ...rest }
   ]);
 
-  return <View style={baseStyle} />;
+  return <View style={baseStyle} testID={testID} />;
 };
 
 Spacer.propTypes = {
