@@ -1,8 +1,9 @@
-import React, { useContext } from 'react';
-import { View, ViewPropTypes } from 'react-native';
+import React from 'react';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
 
-import ConfigContext from '../config-context';
+import { LayoutStylePropTypes } from '../prop-types';
+import { useTheme } from '../config-context';
 import { makeStyle } from '../utils/style';
 
 const getDimensions = (size) => {
@@ -13,13 +14,14 @@ const getDimensions = (size) => {
 };
 
 const Spacer = (props) => {
-  const { size, fullWidth, ...rest } = props;
-  const { theme } = useContext(ConfigContext);
-  const { spacer } = theme;
+  const { size, fullWidth, fullHeight, ...rest } = props;
+
+  const { spacing } = useTheme();
 
   const baseStyle = makeStyle([
-    getDimensions(spacer[size]),
+    getDimensions(spacing(size)),
     fullWidth && { width: '100%' },
+    fullHeight && { height: '100%' },
     { ...rest }
   ]);
 
@@ -27,11 +29,12 @@ const Spacer = (props) => {
 };
 
 Spacer.propTypes = {
-  ...ViewPropTypes,
-  size: PropTypes.oneOf(['xs', 's', 'm', 'l', 'xl']),
-  fullWidth: PropTypes.bool
+  ...LayoutStylePropTypes,
+  size: PropTypes.number,
+  fullWidth: PropTypes.bool,
+  fullHeight: PropTypes.bool
 };
 
-Spacer.defaultProps = { size: 'm', fullWidth: false };
+Spacer.defaultProps = { size: undefined, fullWidth: false, fullHeight: false };
 
 export default Spacer;

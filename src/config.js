@@ -27,13 +27,6 @@ const defaultTheme = {
 
   spacerUnit: 8,
   defaultSpacerSize: 2,
-  spacer: {
-    xs: 10,
-    s: 14,
-    m: 18,
-    l: 22,
-    xl: 26
-  },
 
   colors: {
     brand: '#28D9AA',
