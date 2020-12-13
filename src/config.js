@@ -24,6 +24,9 @@ const defaultTheme = {
   fontWeight: weights.normal,
   fontFamily: undefined,
   weights,
+
+  spacerUnit: 8,
+  defaultSpacerSize: 2,
   spacer: {
     xs: 10,
     s: 14,
@@ -31,11 +34,13 @@ const defaultTheme = {
     l: 22,
     xl: 26
   },
+
   colors: {
     brand: '#28D9AA',
     background: '#FFF',
     text: '#000'
   },
+
   isDark: false
 };
 
