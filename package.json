@@ -51,9 +51,5 @@
   },
   "dependencies": {
     "lodash.merge": "^4.6.2"
-  },
-  "peerDependencies": {
-    "react": ">= 16.9.0",
-    "react-native": ">= 0.59.0"
   }
 }
