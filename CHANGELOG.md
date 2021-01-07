@@ -3,22 +3,27 @@
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-⚠️ The changelog should be **human-readable**, so everything that's added here should be easy to understand without additional lookups and checks (usually, this means that adding the JIRA ticket title is not enough; please explain what happened).
+Headers are one of: `Added`, `Changed`, `Removed`, `Fixed` or `Breaking`.
 
-A good entry follows the following format:
+## [2.0.0] - unreleased
 
-- `MODULE` What was added/changed/removed/fixed.
+### Breaking ⚠️
 
-Headers are one of:
+- New `Spacer` format, based on a `spacerUnit` (default `8`) set in config. Spacer size is computed using the formula `spacerUnit * size`, with `size` as a Number `prop` ([gobzila](https://github.com/gobzila) in [#77](https://github.com/backpacker/primitives/pull/77))
 
-- `Added`, `Changed`, `Removed` or `Fixed`.
+### Added
+
+- New `useTheme` hook. Returns current theme ([gobzila](https://github.com/gobzila) in [#77](https://github.com/backpacker/primitives/pull/77))
+- `PropTypes` for all primitives ([gobzila](https://github.com/gobzila) in [#60](https://github.com/backpacker/primitives/pull/60))
 
 ## [1.0.1]
 
 ### Changed
 
-Add `react` and `react-native` as `peerDependencies`
+- Add `react` and `react-native` as `peerDependencies`
 
 ## [1.0.0]
 
-🚀 Initial release. Contains `Layout`, `Typography`, `Spacer`, `Touchable` `Expandable` and `Modal` primitives.
+### Added
+
+- `Layout`, `Typography`, `Spacer`, `Touchable` `Expandable` and `Modal` primitives.
