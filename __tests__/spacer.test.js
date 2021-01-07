@@ -3,7 +3,11 @@ import React from 'react';
 import { render } from '@testing-library/react-native';
 
 import { ConfigProvider } from '../src/config-context';
+import { defaultTheme } from '../src/config';
 import { Spacer } from '../src/spacer';
+
+const { spacerUnit, defaultSpacerSize } = defaultTheme;
+const spacing = (size = defaultSpacerSize) => size * spacerUnit;
 
 describe('<Spacer>', () => {
   it('should render spacer - default size', () => {
@@ -14,10 +18,25 @@ describe('<Spacer>', () => {
     );
     const { queryByTestId } = render(tree);
     const spacer = queryByTestId('spacer');
-    const defaultSize = 18;
+    const size = spacing();
     expect(spacer).toHaveStyle({
-      width: defaultSize,
-      height: defaultSize
+      width: size,
+      height: size
+    });
+  });
+
+  it('should render spacer - size={5}', () => {
+    const tree = (
+      <ConfigProvider>
+        <Spacer testID='spacer' size={5} />
+      </ConfigProvider>
+    );
+    const { queryByTestId } = render(tree);
+    const spacer = queryByTestId('spacer');
+    const size = spacing(5);
+    expect(spacer).toHaveStyle({
+      width: size,
+      height: size
     });
   });
 
@@ -29,10 +48,23 @@ describe('<Spacer>', () => {
     );
     const { queryByTestId } = render(tree);
     const spacer = queryByTestId('spacer');
-    const defaultSize = 18;
     expect(spacer).toHaveStyle({
       width: '100%',
-      height: defaultSize
+      height: spacing()
+    });
+  });
+
+  it('should render spacer - full height', () => {
+    const tree = (
+      <ConfigProvider>
+        <Spacer testID='spacer' fullHeight />
+      </ConfigProvider>
+    );
+    const { queryByTestId } = render(tree);
+    const spacer = queryByTestId('spacer');
+    expect(spacer).toHaveStyle({
+      width: spacing(),
+      height: '100%'
     });
   });
 });
