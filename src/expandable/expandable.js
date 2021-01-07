@@ -37,6 +37,15 @@ const Expandable = ({
   );
 };
 
+const layoutAnimationPropType = PropTypes.shape({
+  type: PropTypes.string,
+  property: PropTypes.string,
+  springDamping: PropTypes.number,
+  initialVelocity: PropTypes.number,
+  delay: PropTypes.number,
+  duration: PropTypes.number
+});
+
 Expandable.propTypes = {
   initialState: PropTypes.bool,
   renderHeader: PropTypes.func,
@@ -44,30 +53,9 @@ Expandable.propTypes = {
   onHide: PropTypes.func,
   layoutAnimationPreset: PropTypes.shape({
     duration: PropTypes.number,
-    create: PropTypes.shape({
-      type: PropTypes.string,
-      property: PropTypes.string,
-      springDamping: PropTypes.number,
-      initialVelocity: PropTypes.number,
-      delay: PropTypes.number,
-      duration: PropTypes.number
-    }),
-    update: PropTypes.shape({
-      type: PropTypes.string,
-      property: PropTypes.string,
-      springDamping: PropTypes.number,
-      initialVelocity: PropTypes.number,
-      delay: PropTypes.number,
-      duration: PropTypes.number
-    }),
-    delete: PropTypes.shape({
-      type: PropTypes.string,
-      property: PropTypes.string,
-      springDamping: PropTypes.number,
-      initialVelocity: PropTypes.number,
-      delay: PropTypes.number,
-      duration: PropTypes.number
-    })
+    create: layoutAnimationPropType,
+    update: layoutAnimationPropType,
+    delete: layoutAnimationPropType
   })
 };
 
