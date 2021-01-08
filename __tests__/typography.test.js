@@ -3,8 +3,8 @@ import React from 'react';
 import { render } from '@testing-library/react-native';
 
 import { ConfigProvider } from '../src/config-context';
-import { Text, H1 } from '../src/typography';
-import config, { weights } from '../src/config';
+import { Text } from '../src/typography';
+import config, { fontWeights } from '../src/config';
 
 describe('<Text>', () => {
   it('should render Alan Turing; default formatting', () => {
@@ -68,7 +68,7 @@ describe('<Text>', () => {
   });
 
   it('should render Alan Turing; test all font weights', () => {
-    const { normal, ...rest } = weights;
+    const { normal, ...rest } = fontWeights;
     const all = Object.keys(rest);
     all.forEach((fontWeight) => {
       const props = {
@@ -83,24 +83,22 @@ describe('<Text>', () => {
       const t = getByText('Alan Turing');
       expect(t).toBeTruthy();
       expect(t).toHaveStyle({
-        fontWeight: weights[fontWeight]
+        fontWeight: fontWeights[fontWeight]
       });
     });
   });
 });
 
-describe('<H1>', () => {
+describe(`Test Text variants`, () => {
   it('should render Alan Turing', () => {
     const tree = (
       <ConfigProvider>
-        <H1>Alan Turing</H1>
+        <Text variant='title1'>Alan Turing</Text>
       </ConfigProvider>
     );
     const { getByText } = render(tree);
     const t = getByText('Alan Turing');
     expect(t).toBeTruthy();
-    expect(t).toHaveStyle({
-      fontSize: config.default.fontSize.h1
-    });
+    expect(t).toHaveStyle(config.default.textVariants.title1);
   });
 });

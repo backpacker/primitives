@@ -40,16 +40,14 @@ const ConfigProvider = ({ children, config: customConfig }) => {
  */
 const withTheme = (Component) => (props) => (
   <ConfigContext.Consumer>
-    {(value) => <Component {...props} theme={value.theme} />}
+    {(value) => <Component {...props} {...value} />}
   </ConfigContext.Consumer>
 );
 
 /**
  * @typedef {Object} Theme
- * @property {Object} fontSize
- * @property {string} fontWeight
  * @property {string} fontFamily
- * @property {Object} weights
+ * @property {Object} fontWeights
  * @property {number} spacerUnit
  * @property {number} defaultSpacerSize
  * @property {Function} spacing
@@ -60,10 +58,7 @@ const withTheme = (Component) => (props) => (
  * Hook for using the active theme
  * @return {Theme}
  */
-const useTheme = () => {
-  const { theme } = useContext(ConfigContext);
-  return theme;
-};
+const useTheme = () => useContext(ConfigContext);
 
 export { ConfigProvider, ConfigConsumer, withTheme, useTheme };
 export default ConfigContext;

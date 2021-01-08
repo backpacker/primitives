@@ -13,7 +13,7 @@
 1. [How to adopt in your project](#how-to-adopt-in-your-project)
 1. [Primitives API](#primitives-api)
    1. [Layout](#layout)
-   1. [Typography](#typography)
+   1. [Text](#text)
    1. [Spacer](#spacer)
    1. [Touchable](#touchable)
    1. [Expandable](#expandable)
@@ -102,7 +102,7 @@ From my experience, a good practice is to create a new directory called `primiti
 │   ├── primitives
 │   │   ├── ...
 │   │   ├── layout
-│   │   ├── typography
+│   │   ├── text
 │   │   ├── spacer
 │   │   └── ...
 ```
@@ -129,17 +129,24 @@ import { Column, Row, Float } from '@backpacker/primitives';
 | `center` | bool | `justifyContent: 'center', alignItems: 'center'` |
 | ∞        | -    | Any other `View` style props                     |
 
-### Typography
+### Text
 
 ```js
-import { H1, H2, H3, H4, H5, H6, H7, H8 } from '@backpacker/primitives';
+import { Text } from '@backpacker/primitives';
 
-<H3 uppercase semibold>
-  Hello!
-</H3>;
+<Text variant='title1' uppercase semibold>
+  Sample Text
+</Text>;
 ```
 
-Typography `primitives` take the `fontSize` from the `config` object (via a theme) and accept any text style props. There are a couple of built-in _modifiers_ as well:
+To configure the `Text` `primitive`, you need to change the following keys in the config file:
+
+- `fontFamily` - `string`, default `undefined` (default for each Platform)
+- `textVariants` - `object`, default config [here](./src/config).
+
+You can have any number of `textVariants`, statically defined in the config. By default, the library implements the default typography styles from [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/typography/).
+
+Built-in _modifiers_:
 
 | prop        | type | description                                                                                                                |
 | ----------- | ---- | -------------------------------------------------------------------------------------------------------------------------- |
