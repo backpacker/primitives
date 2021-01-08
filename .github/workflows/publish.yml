@@ -16,6 +16,10 @@ jobs:
       - run: npm install -g yarn
       - name: Install dependencies
         run: yarn
+      - name: Setup React Native environment
+        run: |
+          yarn add react-native@0.63.4
+          yarn add react@16.13.1
       - name: Run tests
         run: yarn test
       - id: publish
