@@ -4,15 +4,15 @@ import { render } from '@testing-library/react-native';
 
 import { ConfigProvider } from '../src/config-context';
 import { Column, Row, Float } from '../src/layout';
-import { H1 } from '../src/typography';
+import { Text } from '../src/typography';
 
 describe('<Column>', () => {
-  it('should render two H1 elements in column layout, centered', () => {
+  it('should render two Text elements in column layout, centered', () => {
     const tree = (
       <ConfigProvider>
         <Column center testID='column'>
-          <H1>Brian Kernighan</H1>
-          <H1>Dennis Ritchie</H1>
+          <Text>Brian Kernighan</Text>
+          <Text>Dennis Ritchie</Text>
         </Column>
       </ConfigProvider>
     );
@@ -31,12 +31,12 @@ describe('<Column>', () => {
 });
 
 describe('<Row>', () => {
-  it('should render two H1 elements in row layout', () => {
+  it('should render two Text elements in row layout', () => {
     const tree = (
       <ConfigProvider>
         <Row testID='row'>
-          <H1>Brian Kernighan</H1>
-          <H1>Dennis Ritchie</H1>
+          <Text>Brian Kernighan</Text>
+          <Text>Dennis Ritchie</Text>
         </Row>
       </ConfigProvider>
     );
@@ -53,12 +53,12 @@ describe('<Row>', () => {
 });
 
 describe('<Float>', () => {
-  it('should render two H1 elements in float layout', () => {
+  it('should render two Text elements in float layout', () => {
     const tree = (
       <ConfigProvider>
         <Float testID='row'>
-          <H1>Brian Kernighan</H1>
-          <H1>Dennis Ritchie</H1>
+          <Text>Brian Kernighan</Text>
+          <Text>Dennis Ritchie</Text>
         </Float>
       </ConfigProvider>
     );

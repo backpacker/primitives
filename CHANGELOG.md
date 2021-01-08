@@ -10,11 +10,16 @@ Headers are one of: `Added`, `Changed`, `Removed`, `Fixed` or `Breaking`.
 ### Breaking ⚠️
 
 - New `Spacer` format, based on a `spacerUnit` (default `8`) set in config. Spacer size is computed using the formula `spacerUnit * size`, with `size` as a Number `prop` ([gobzila](https://github.com/gobzila) in [#77](https://github.com/backpacker/primitives/pull/77))
+- New `Text` primitive config format. You can now add any number of `textVariants` in the config and use them via the `variant` `prop`
 
 ### Added
 
 - New `useTheme` hook. Returns current theme ([gobzila](https://github.com/gobzila) in [#77](https://github.com/backpacker/primitives/pull/77))
 - `PropTypes` for all primitives ([gobzila](https://github.com/gobzila) in [#60](https://github.com/backpacker/primitives/pull/60))
+
+### Removed
+
+- `H1`, `H2`, ..., `H8` primitives are removed in favor of a new way to config `Text`, based on `textVariants`.
 
 ## [1.0.1]
 

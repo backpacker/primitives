@@ -16,7 +16,8 @@ const getDimensions = (size) => {
 const Spacer = (props) => {
   const { size, fullWidth, fullHeight, testID, ...rest } = props;
 
-  const { spacing } = useTheme();
+  const { theme } = useTheme();
+  const { spacing } = theme;
 
   const baseStyle = makeStyle([
     getDimensions(spacing(size)),

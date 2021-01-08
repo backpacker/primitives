@@ -5,19 +5,19 @@ import { render, fireEvent } from '@testing-library/react-native';
 import { ConfigProvider } from '../src/config-context';
 import { Expandable } from '../src/expandable';
 import { Row, Column } from '../src/layout';
-import { H2 } from '../src/typography';
+import { Text } from '../src/typography';
 
 test('Test Expandable states', async () => {
   const Header = () => (
     <Row>
-      <H2>Expand me</H2>
+      <Text>Expand me</Text>
     </Row>
   );
   const tree = (
     <ConfigProvider>
       <Expandable renderHeader={() => <Header />}>
         <Column>
-          <H2>This is the content</H2>
+          <Text>This is the content</Text>
         </Column>
       </Expandable>
     </ConfigProvider>

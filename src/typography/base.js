@@ -10,6 +10,8 @@ const Text = (props) => {
   const {
     children,
 
+    variant,
+
     uppercase,
     underline,
     strikeout,
@@ -30,7 +32,7 @@ const Text = (props) => {
   } = props;
 
   const { theme } = useContext(ConfigContext);
-  const { fontFamily, colors, weights } = theme;
+  const { fontFamily, fontWeights: weights, textVariants, colors } = theme;
 
   const baseStyle = makeStyle([
     {
@@ -38,6 +40,8 @@ const Text = (props) => {
       color: colors.text,
       textAlign: 'left'
     },
+    variant && { ...textVariants[variant] },
+
     uppercase && { textTransform: 'uppercase' },
     underline && { textDecorationLine: 'underline' },
     strikeout && { textDecorationLine: 'line-through' },
@@ -64,6 +68,7 @@ const Text = (props) => {
 
 Text.propTypes = {
   ...TextStylePropTypes,
+  variant: PropTypes.string,
   center: PropTypes.bool,
   uppercase: PropTypes.bool,
   underline: PropTypes.bool,
@@ -79,6 +84,7 @@ Text.propTypes = {
 };
 
 Text.defaultProps = {
+  variant: undefined,
   center: false,
   uppercase: false,
   underline: false,
