@@ -3,7 +3,7 @@
 > Foundational components for React Native UI
 
 [![npm version](https://img.shields.io/npm/v/@backpacker/primitives)](https://www.npmjs.com/package/@backpacker/primitives)
-![Build](https://github.com/backpacker/primitives/workflows/tests/badge.svg)
+[![Build](https://github.com/backpacker/primitives/workflows/tests/badge.svg)](https://github.com/backpacker/primitives/actions?query=workflow%3Atests)
 [![Coverage Status](https://coveralls.io/repos/github/backpacker/primitives/badge.svg?branch=master)](https://coveralls.io/github/backpacker/primitives?branch=master)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
@@ -125,9 +125,9 @@ import { Column, Row, Float } from '@backpacker/primitives';
 `Float` has `position: 'absolute'` and `zIndex: 1`. The others are self-explanatory. The _modifier_ props are:
 
 | prop     | type | description                                      |
-| -------- | --------- | ------------------------------------------------ |
+| -------- | ---- | ------------------------------------------------ |
 | `center` | bool | `justifyContent: 'center', alignItems: 'center'` |
-| ∞        | - | Any other `View` style props                     |
+| ∞        | -    | Any other `View` style props                     |
 
 ### Typography
 
@@ -142,13 +142,13 @@ import { H1, H2, H3, H4, H5, H6, H7, H8 } from '@backpacker/primitives';
 Typography `primitives` take the `fontSize` from the `config` object (via a theme) and accept any text style props. There are a couple of built-in _modifiers_ as well:
 
 | prop        | type | description                                                                                                                |
-| ----------- | --------- | -------------------------------------------------------------------------------------------------------------------------- |
+| ----------- | ---- | -------------------------------------------------------------------------------------------------------------------------- |
 | `uppercase` | bool | `textTransform: 'uppercase'`                                                                                               |
 | `underline` | bool | `textDecorationLine: 'underline'`                                                                                          |
 | `strikeout` | bool | `textDecorationLine: 'line-through'`                                                                                       |
 | `center`    | bool | `textAlign: 'center'`                                                                                                      |
 | `semibold`  | bool | `fontWeight: weights.semibold`; Same for all the other font weights. All of them can be found in [config](./src/config.js) |
-| ∞           | - | Any other `Text` style props                                                                                               |
+| ∞           | -    | Any other `Text` style props                                                                                               |
 
 ### Spacer
 
@@ -161,12 +161,12 @@ import { Spacer } from '@backpacker/primitives';
 The `Spacer` is just a `View` with equal `height` and `width` by default. The `height` and the `width` values are computed (multiplication) based on the `size` prop and the `spacerUnit` value which is provided through the [config](./src/config.js) object, via a theme.
 A good UI can be expressed with a controlled set of "spacer" values - this gives consistency.
 
-| prop   | type | description    |
-| ------ | --------- | -------------- |
-| `size` | number | Default is the value of `defaultSpacerSize` propery, provided through the [config](./src/config.js) object |
-| `fullWidth` | bool | If true, the width of the spacer will be `100%`. Default is `false` |
-| `fullHeight` | bool | If true, the height of the spacer will be `100%`. Default is `false` |
-| ∞        | - | Any other `View` style props                     |
+| prop         | type   | description                                                                                                |
+| ------------ | ------ | ---------------------------------------------------------------------------------------------------------- |
+| `size`       | number | Default is the value of `defaultSpacerSize` propery, provided through the [config](./src/config.js) object |
+| `fullWidth`  | bool   | If true, the width of the spacer will be `100%`. Default is `false`                                        |
+| `fullHeight` | bool   | If true, the height of the spacer will be `100%`. Default is `false`                                       |
+| ∞            | -      | Any other `View` style props                                                                               |
 
 ### Touchable
 
@@ -178,12 +178,12 @@ import { Touchable } from '@backpacker/primitives';
 
 The `Touchable` primitive is a wrapper around the `TouchableOpacity` component.
 
-| prop            | type | description                                                                                                                                 |
-| --------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `activeOpacity` | number | Default is `0.5`, but can be changed via this props. This ensures that we have a single source of truth for the `Touchable` `activeOpacity` |
+| prop            | type     | description                                                                                                                                 |
+| --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `activeOpacity` | number   | Default is `0.5`, but can be changed via this props. This ensures that we have a single source of truth for the `Touchable` `activeOpacity` |
 | `onPress`       | function | A func, default is `undefined`                                                                                                              |
-| `isDisabled`    | bool | A bool, default is `false`                                                                                                                  |
-| ∞               | - | Any other `TouchableOpacity` style props                                                                                                    |
+| `isDisabled`    | bool     | A bool, default is `false`                                                                                                                  |
+| ∞               | -        | Any other `TouchableOpacity` style props                                                                                                    |
 
 ### Expandable
 
@@ -202,13 +202,13 @@ import { Expandable } from '@backpacker/primitives';
 
 The `Expandable` primitive uses `LayoutAnimation` for a smooth expand/collapse of the content.
 
-| prop                    | type | description                                                                    |
-| ----------------------- | --------- | ------------------------------------------------------------------------------ |
-| `initialState`          | bool | A bool, default is `false`                                                     |
+| prop                    | type     | description                                                                    |
+| ----------------------- | -------- | ------------------------------------------------------------------------------ |
+| `initialState`          | bool     | A bool, default is `false`                                                     |
 | `renderHeader`          | function | A render func, default is `undefined`                                          |
 | `onShow`                | function | A func, default is noop                                                        |
 | `onHide`                | function | A func, default is noop                                                        |
-| `layoutAnimationPreset` | object | A `LayoutAnimation` preset; default is `LayoutAnimation.Presets.easeInEaseOut` |
+| `layoutAnimationPreset` | object   | A `LayoutAnimation` preset; default is `LayoutAnimation.Presets.easeInEaseOut` |
 
 ### Modal
 
@@ -227,9 +227,9 @@ modalRef.current.hide();
 
 The `Modal` primitive is a wrapper for the default RN `Modal`.
 
-| prop            | type | description             |
-| --------------- | --------- | ----------------------- |
-| `animationType` | string | Default is `fade`       |
+| prop            | type     | description             |
+| --------------- | -------- | ----------------------- |
+| `animationType` | string   | Default is `fade`       |
 | `onShow`        | function | A func, default is noop |
 | `onHide`        | function | A func, default is noop |
 
