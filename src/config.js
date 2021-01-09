@@ -1,13 +1,37 @@
+/*
+  On Android only 'normal' and 'bold' fontWeight values are supported.
+
+  Having an object for each fontWeight "variant" enables you to overwrite this config
+  and add other properties (like fontFamily) if required
+*/
 export const fontWeights = {
-  extralight: '100',
-  thin: '200',
-  light: '300',
-  normal: '400',
-  medium: '500',
-  semibold: '600',
-  bold: '700',
-  heavy: '800',
-  extraheavy: '900'
+  extralight: {
+    fontWeight: '100'
+  },
+  thin: {
+    fontWeight: '200'
+  },
+  light: {
+    fontWeight: '300'
+  },
+  normal: {
+    fontWeight: '400'
+  },
+  medium: {
+    fontWeight: '500'
+  },
+  semibold: {
+    fontWeight: '600'
+  },
+  bold: {
+    fontWeight: '700'
+  },
+  heavy: {
+    fontWeight: '800'
+  },
+  extraheavy: {
+    fontWeight: '900'
+  }
 };
 
 export const defaultTheme = {
@@ -29,7 +53,7 @@ export const defaultTheme = {
     },
     headline: {
       fontSize: 17,
-      fontWeight: fontWeights.semibold
+      ...fontWeights.semibold
     },
     body: {
       fontSize: 17

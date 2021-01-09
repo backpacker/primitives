@@ -32,7 +32,7 @@ const Text = (props) => {
   } = props;
 
   const { theme } = useContext(ConfigContext);
-  const { fontFamily, fontWeights: weights, textVariants, colors } = theme;
+  const { fontFamily, fontWeights, textVariants, colors } = theme;
 
   const baseStyle = makeStyle([
     {
@@ -47,14 +47,14 @@ const Text = (props) => {
     strikeout && { textDecorationLine: 'line-through' },
     center && { textAlign: 'center' },
 
-    extralight && { fontWeight: weights.extralight },
-    thin && { fontWeight: weights.thin },
-    light && { fontWeight: weights.light },
-    medium && { fontWeight: weights.medium },
-    semibold && { fontWeight: weights.semibold },
-    bold && { fontWeight: weights.bold },
-    heavy && { fontWeight: weights.heavy },
-    extraheavy && { fontWeight: weights.extraheavy },
+    extralight && { ...fontWeights.extralight },
+    thin && { ...fontWeights.thin },
+    light && { ...fontWeights.light },
+    medium && { ...fontWeights.medium },
+    semibold && { ...fontWeights.semibold },
+    bold && { ...fontWeights.bold },
+    heavy && { ...fontWeights.heavy },
+    extraheavy && { ...fontWeights.extraheavy },
 
     { ...rest }
   ]);

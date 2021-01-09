@@ -83,7 +83,7 @@ describe('<Text>', () => {
       const t = getByText('Alan Turing');
       expect(t).toBeTruthy();
       expect(t).toHaveStyle({
-        fontWeight: fontWeights[fontWeight]
+        fontWeight: fontWeights[fontWeight].fontWeight
       });
     });
   });
