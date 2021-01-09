@@ -11,60 +11,73 @@
 1. [Usage](#usage)
 1. [What are primitives](#what-are-primitives)
 1. [How to adopt in your project](#how-to-adopt-in-your-project)
-1. [Primitives API](#primitives-api)
-   1. [Layout](#layout)
-   1. [Text](#text)
-   1. [Spacer](#spacer)
-   1. [Touchable](#touchable)
-   1. [Expandable](#expandable)
-   1. [Modal](#modal)
+1. [API](#api)
+   - [Layout](#layout)
+   - [Text](#text)
+   - [Spacer](#spacer)
+   - [Touchable](#touchable)
+   - [Expandable](#expandable)
+   - [Modal](#modal)
+   - [useTheme](#usetheme)
 1. [Custom themes](#custom-themes)
-1. [Contributing](#contributing)
 
 ## Install
 
-```bash
+```sh
 yarn add @backpacker/primitives
+# or
+npm install --save @backpacker/primitives
 ```
 
 ## Usage
 
 ```js
 /*
-  Wrap your app Root with the `ConfigProvider` component
+  Wrap your App's entry point with the `ConfigProvider` component
 */
-
-// root.js
 import { ConfigProvider } from '@backpacker/primitives';
 
-const Root = () => {
+function Root() {
   return (
     <ConfigProvider>
       <App />
     </ConfigProvider>
   );
-};
+}
+```
 
+```js
 /*
   Then use primitives anywhere you want
 */
+import {
+  Column,
+  Text,
+  Spacer,
+  Touchable,
+  useTheme
+} from '@backpacker/primitives';
 
-// screens/hello.js
-import { Row, H1, H3, Spacer, Touchable } from '@backpacker/primitives';
+function MyComponent(props) {
+  const { theme, setTheme } = useTheme();
 
-const MyComponent = (props) => {
-  const sayHello = () => console.log('Hi! 👋');
+  const toggleTheme = () => setTheme(theme.isDark ? 'default' : 'dark');
 
   return (
-    <Touchable onPress={sayHello}>
-      <Row>
-        <H1 uppercase>Hello!</H1>
-        <Spacer size={3} />
-        <H3>Tap here</H3>
-      </Row>
-    </Touchable>
+    <Column flex={1} backgroundColor={theme.colors.background} center>
+      <Touchable
+        onPress={toggleTheme}
+        padding={20}
+        backgroundColor={theme.colors.brand}>
+        <Text variant='body'>Switch theme</Text>
+      </Touchable>
+
+      <Spacer size={5} />
+
+      <Text variant='caption1'>Sample text</Text>
+    </Column>
   );
-};
+}
 ```
 
 ## What are primitives
@@ -109,7 +122,7 @@ From my experience, a good practice is to create a new directory called `primiti
 
 The important part is to keep a clear separation between `primitives`, `components` and `screens`. This is a discipline that helps on the long run. You might end up with `components` inside your `primitives` directory. That's fine, but as soon as you realize that, your job is to move them out of the directory and set them where they belong.
 
-## Primitives API
+## API
 
 ### Layout
 
@@ -122,7 +135,7 @@ import { Column, Row, Float } from '@backpacker/primitives';
 </Column>;
 ```
 
-`Float` has `position: 'absolute'` and `zIndex: 1`. The others are self-explanatory. The _modifier_ props are:
+`Float` has `position: 'absolute'` and `zIndex: 1`. The others are self-explanatory.
 
 | prop     | type | description                                      |
 | -------- | ---- | ------------------------------------------------ |
@@ -141,21 +154,21 @@ import { Text } from '@backpacker/primitives';
 
 To configure the `Text` `primitive`, you need to change the following keys in the config file:
 
-- `fontFamily` - `string`, default `undefined` (default for each Platform)
+- `fontFamily` - `string`, default `undefined` (default for each Platform).
 - `textVariants` - `object`, default config [here](./src/config).
 
 You can have any number of `textVariants`, statically defined in the config. By default, the library implements the default typography styles from [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/typography/).
 
-Built-in _modifiers_:
-
-| prop        | type | description                                                                                                                |
-| ----------- | ---- | -------------------------------------------------------------------------------------------------------------------------- |
-| `uppercase` | bool | `textTransform: 'uppercase'`                                                                                               |
-| `underline` | bool | `textDecorationLine: 'underline'`                                                                                          |
-| `strikeout` | bool | `textDecorationLine: 'line-through'`                                                                                       |
-| `center`    | bool | `textAlign: 'center'`                                                                                                      |
-| `semibold`  | bool | `fontWeight: weights.semibold`; Same for all the other font weights. All of them can be found in [config](./src/config.js) |
-| ∞           | -    | Any other `Text` style props                                                                                               |
+| prop        | type   | description                                                                                                                |
+| ----------- | ------ | -------------------------------------------------------------------------------------------------------------------------- |
+| `variant`   | string | Any key defined in [config](./src/config.js) > `textVariants`                                                              |
+| `uppercase` | bool   | `textTransform: 'uppercase'`                                                                                               |
+| `underline` | bool   | `textDecorationLine: 'underline'`                                                                                          |
+| `strikeout` | bool   | `textDecorationLine: 'line-through'`                                                                                       |
+| `center`    | bool   | `textAlign: 'center'`                                                                                                      |
+| `semibold`  | bool   | `fontWeight: weights.semibold`; Same for all the other font weights. All of them can be found in [config](./src/config.js) |
+| `testID`    | string | Test ID                                                                                                                    |
+| ∞           | -      | Any other `Text` style props                                                                                               |
 
 ### Spacer
 
@@ -165,15 +178,18 @@ import { Spacer } from '@backpacker/primitives';
 <Spacer size={2} />;
 ```
 
-The `Spacer` is just a `View` with equal `height` and `width` by default. The `height` and the `width` values are computed (multiplication) based on the `size` prop and the `spacerUnit` value which is provided through the [config](./src/config.js) object, via a theme.
+The `Spacer` is just a `View` with equal `height` and `width` by default.
+
+The `height` and the `width` values are computed using the `size` prop and the `spacerUnit` value which is provided through the [config](./src/config.js), via a theme. Formula is `size * spacerUnit`.
+
 A good UI can be expressed with a controlled set of "spacer" values - this gives consistency.
 
-| prop         | type   | description                                                                                                |
-| ------------ | ------ | ---------------------------------------------------------------------------------------------------------- |
-| `size`       | number | Default is the value of `defaultSpacerSize` propery, provided through the [config](./src/config.js) object |
-| `fullWidth`  | bool   | If true, the width of the spacer will be `100%`. Default is `false`                                        |
-| `fullHeight` | bool   | If true, the height of the spacer will be `100%`. Default is `false`                                       |
-| ∞            | -      | Any other `View` style props                                                                               |
+| prop         | type   | description                                                                     |
+| ------------ | ------ | ------------------------------------------------------------------------------- |
+| `size`       | number | Default value is `defaultSpacerSize`, provided in the [config](./src/config.js) |
+| `fullWidth`  | bool   | If true, the width of the spacer will be `100%`. Default is `false`             |
+| `fullHeight` | bool   | If true, the height of the spacer will be `100%`. Default is `false`            |
+| ∞            | -      | Any other `View` style props                                                    |
 
 ### Touchable
 
@@ -185,12 +201,12 @@ import { Touchable } from '@backpacker/primitives';
 
 The `Touchable` primitive is a wrapper around the `TouchableOpacity` component.
 
-| prop            | type     | description                                                                                                                                 |
-| --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `activeOpacity` | number   | Default is `0.5`, but can be changed via this props. This ensures that we have a single source of truth for the `Touchable` `activeOpacity` |
-| `onPress`       | function | A func, default is `undefined`                                                                                                              |
-| `isDisabled`    | bool     | A bool, default is `false`                                                                                                                  |
-| ∞               | -        | Any other `TouchableOpacity` style props                                                                                                    |
+| prop            | type     | description                              |
+| --------------- | -------- | ---------------------------------------- |
+| `activeOpacity` | number   | Default is `0.5`                         |
+| `onPress`       | function | Default is `undefined`                   |
+| `isDisabled`    | bool     | Default is `false`                       |
+| ∞               | -        | Any other `TouchableOpacity` style props |
 
 ### Expandable
 
@@ -211,10 +227,10 @@ The `Expandable` primitive uses `LayoutAnimation` for a smooth expand/collapse o
 
 | prop                    | type     | description                                                                    |
 | ----------------------- | -------- | ------------------------------------------------------------------------------ |
-| `initialState`          | bool     | A bool, default is `false`                                                     |
-| `renderHeader`          | function | A render func, default is `undefined`                                          |
-| `onShow`                | function | A func, default is noop                                                        |
-| `onHide`                | function | A func, default is noop                                                        |
+| `initialState`          | bool     | Default is `false`                                                             |
+| `renderHeader`          | function | Default is `undefined`                                                         |
+| `onShow`                | function | Default is noop                                                                |
+| `onHide`                | function | Default is noop                                                                |
 | `layoutAnimationPreset` | object   | A `LayoutAnimation` preset; default is `LayoutAnimation.Presets.easeInEaseOut` |
 
 ### Modal
@@ -234,45 +250,119 @@ modalRef.current.hide();
 
 The `Modal` primitive is a wrapper for the default RN `Modal`.
 
-| prop            | type     | description             |
-| --------------- | -------- | ----------------------- |
-| `animationType` | string   | Default is `fade`       |
-| `onShow`        | function | A func, default is noop |
-| `onHide`        | function | A func, default is noop |
+| prop            | type     | description       |
+| --------------- | -------- | ----------------- |
+| `animationType` | string   | Default is `fade` |
+| `onShow`        | function | Default is noop   |
+| `onHide`        | function | Default is noop   |
+
+### useTheme
+
+```js
+import { useTheme } from '@backpacker/primitives';
+
+function MyComponent() {
+  const { theme, setTheme } = useTHeme;
+
+  return (
+    <Column backgroundColor={theme.colors.background} flex={1} center>
+      <Text>Sample Text</Text>
+    </Column>
+  );
+}
+```
 
 ## Custom themes
 
-To create a custom theme, we take the [config](./src/config.js) object and extend it using a new key (or overwrite an existing key). For example, let's say I want to add a new dark theme. I'll call it `dark2`. And I want to change the spacer values too.
+To create a custom theme, we take the [config](./src/config.js) object and extend it using a new key (or overwrite an existing key).
+
+The following keys can be overwritten:
+
+- `fontFamily` - string, default is `undefined`.
+  ```js
+  const fontFamily = 'Roboto';
+  ```
+- `fontWeights` - object, configures all `fontWeight` `variants`.
+
+  ```js
+  const fontWeights = {
+    extralight: {},
+    thin: {},
+    light: {},
+    normal: {},
+    medium: {},
+    semibold: {
+      fontWeight: '600'
+    },
+    bold: {},
+    heavy: {},
+    extraheavy: {}
+  };
+  ```
+
+- `textVariants` - object, configures any `Text` `variant`.
+
+  ```js
+  const textVariants = {
+    title: {
+      fontSize: 28,
+      ...fontWeights.semibold
+    },
+    subtitle: {
+      fontSize: 18
+    }
+  };
+  ```
+
+- `spacerUnit` - number, configures default `Spacer` unit
+
+  ```js
+  const spacerUnit = 5;
+  ```
+
+- `defaultSpacerSize` - number, configures default `Spacer` size.
+
+  ```js
+  const defaultSpacerSize = 2;
+  ```
+
+  This means `<Spacer />` now has a size equal to `2*5`.
+
+- `colors` - object, configures any colors that can be later consumed via `useTheme` hook.
+
+  ```js
+  const colors = {
+    colors: {
+      background: '#000',
+      text: '#FFF'
+    }
+  };
+  ```
+
+Now all I have to do is wrap everything together in a `theme`:
 
 ```js
 import { defaultTheme } from '@backpacker/primitives';
 
-const dark2 = {
+const myDarkTheme = {
   ...defaultTheme,
-  spacer: {
-    xs: 5,
-    s: 10,
-    m: 15,
-    l: 20,
-    xl: 25
-  },
-  colors: {
-    ...defaultTheme.colors,
-    background: '#000',
-    text: '#FFF'
-  },
+  fontFamily,
+  fontWeights,
+  textVariants,
+  spacerUnit,
+  defaultSpacerSize,
+  colors,
   isDark: true
 };
 ```
 
-Then, I can pass it to the `ConfigProvider`, in `root.js`:
+And pass it to the `ConfigProvider`, in my App's entry point:
 
 ```js
-// root.js
 import { ConfigProvider } from '@backpacker/primitives';
 
 const customConfig = {
-  dark2
+  myDarkTheme
 };
 
 const Root = () => {
@@ -284,14 +374,18 @@ const Root = () => {
 };
 ```
 
-You'll always want to change the `spacer` or `fontSize` values from the default theme anyway.
+To switch to this theme, use:
 
-## Contributing
+```js
+import { useTheme } from '@backpacker/primitives';
 
-Before contributing to this repo, please open an issue to discuss the changes and the proposed solution. Communication is key.
+function MyComponent() {
+  const { setTheme } = useTheme();
 
-Here are a couple of principles any new `primitive` added to the repo should follow:
+  const enableDarkMode = () => setTheme('myDarkTheme');
 
-- A `primitive` should contain as little UI decisions as possible, to have them easily adopted in various projects
-- Any change must have unit tests to support it
-- Try to keep a consistent API across the board
+  return (
+    ...
+  )
+}
+```
