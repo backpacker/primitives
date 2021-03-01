@@ -10,7 +10,7 @@
     "lint-staged": "./node_modules/.bin/lint-staged"
   },
   "lint-staged": {
-    "*.{js,jsx}": [
+    "*.{js,jsx,ts,tsx}": [
       "./node_modules/.bin/prettier --write",
       "./node_modules/.bin/eslint"
     ]
@@ -33,6 +33,7 @@
   "devDependencies": {
     "@testing-library/jest-native": "^3.4.3",
     "@testing-library/react-native": "^7.1.0",
+    "babel-eslint": "^10.1.0",
     "eslint": "^7.17.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^7.2.0",
@@ -48,6 +49,7 @@
     "react-test-renderer": "^17.0.1"
   },
   "dependencies": {
+    "@types/react-native": "^0.63.50",
     "lodash.merge": "^4.6.2"
   }
 }
