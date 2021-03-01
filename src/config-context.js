@@ -1,13 +1,12 @@
 import React, { useContext, useState } from 'react';
 
 import defaultConfig from './config';
-import { merge } from './utils/object';
 
 const ConfigContext = React.createContext({});
 const ConfigConsumer = ConfigContext.Consumer;
 
 const ConfigProvider = ({ children, config: customConfig }) => {
-  const [config, setConfig] = useState(merge(defaultConfig, customConfig));
+  const [config, setConfig] = useState({ ...defaultConfig, ...customConfig });
 
   const setTheme = (newTheme = '') => {
     setConfig({
