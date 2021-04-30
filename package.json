@@ -49,6 +49,6 @@
     "react-test-renderer": "^17.0.1"
   },
   "dependencies": {
-    "@types/react-native": "^0.63.50"
+    "@types/react-native": "^0.64.4"
   }
 }
