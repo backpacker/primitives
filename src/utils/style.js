@@ -1,7 +1,5 @@
 import { StyleSheet } from 'react-native';
 
-const makeStyle = (styleArr = []) => {
-  return StyleSheet.flatten(styleArr);
-};
+const makeStyle = (styleArr = []) => StyleSheet.flatten(styleArr);
 
 export { makeStyle };
