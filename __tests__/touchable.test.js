@@ -18,7 +18,7 @@ describe('<Touchable>', () => {
     const { queryByTestId } = render(tree);
     const t = queryByTestId('touchable');
     const res = fireEvent.press(t);
-    expect(res).toBeNull();
+    expect(res).toBeFalsy();
     expect(t).toBeDisabled();
   });
 });
