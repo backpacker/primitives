@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import defaultConfig from './config';
 
@@ -30,6 +31,16 @@ const ConfigProvider = ({ children, config: customConfig }) => {
   return (
     <ConfigContext.Provider value={value}>{children}</ConfigContext.Provider>
   );
+};
+
+ConfigProvider.propTypes = {
+  config: PropTypes.shape({
+    activeTheme: PropTypes.string
+  })
+};
+
+ConfigProvider.defaultProps = {
+  config: undefined
 };
 
 /**
