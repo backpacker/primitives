@@ -6,12 +6,10 @@ import { LayoutStylePropTypes } from '../prop-types';
 import { useTheme } from '../config-context';
 import { makeStyle } from '../utils/style';
 
-const getDimensions = (size) => {
-  return {
-    width: size,
-    height: size
-  };
-};
+const getDimensions = (size) => ({
+  width: size,
+  height: size
+});
 
 const Spacer = (props) => {
   const { size, fullWidth, fullHeight, testID, ...rest } = props;
