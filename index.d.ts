@@ -3,7 +3,13 @@ import {
   ViewStyle,
   TextStyle,
   LayoutAnimationConfig,
-  ModalProps
+  ModalProps,
+  AccessibilityRole,
+  AccessibilityState,
+  LayoutChangeEvent,
+  GestureResponderEvent,
+  NativeSyntheticEvent,
+  TextLayoutEventData
 } from '@types/react-native';
 
 export interface LayoutTypes extends ViewStyle {
@@ -11,6 +17,7 @@ export interface LayoutTypes extends ViewStyle {
    * Shorthand for justifyContent: center, alignItems: center
    */
   center?: boolean;
+  onLayout?: (event: LayoutChangeEvent) => void;
 }
 
 export interface TextTypes extends TextStyle {
@@ -41,6 +48,24 @@ export interface TextTypes extends TextStyle {
   heavy?: boolean;
   extraheavy?: boolean;
   center?: boolean;
+
+  accessibilityHint?: string;
+  accessibilityLabel?: string;
+  accessibilityRole?: AccessibilityRole,
+  accessibilityState?: AccessibilityState,
+  accessible?: boolean;
+  adjustsFontSizeToFit?: boolean;
+  allowFontScaling?: boolean;
+  ellipsizeMode: 'head' | 'middle' | 'tail' | 'clip';
+  maxFontSizeMultiplier?: number;
+  minimumFontScale?: number;
+  nativeID?: string;
+  numberOfLines?: number;
+  onLayout?: (event: LayoutChangeEvent) => void;
+  onLongPress?: (event: GestureResponderEvent) => void;
+  onPress?: (event: GestureResponderEvent) => void;
+  onTextLayout?: (event: NativeSyntheticEvent<TextLayoutEventData>) => void;
+  selectable?: boolean;
 }
 
 export interface SpacerTypes extends ViewStyle {
@@ -98,6 +123,7 @@ export interface BackpackerTheme {
   };
   spacerUnit?: number;
   defaultSpacerSize?: number;
+  spacing?: (size: number) => number;
   colors?: {
     [key: string]: string;
   };
