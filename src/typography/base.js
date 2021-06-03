@@ -10,6 +10,27 @@ const Text = (props) => {
   const {
     children,
 
+    // Text props
+    testID,
+    accessibilityHint,
+    accessibilityLabel,
+    accessibilityRole,
+    accessibilityState,
+    accessible,
+    adjustsFontSizeToFit,
+    allowFontScaling,
+    ellipsizeMode,
+    maxFontSizeMultiplier,
+    minimumFontScale,
+    nativeID,
+    numberOfLines,
+    onLayout,
+    onLongPress,
+    onPress,
+    onTextLayout,
+    selectable,
+
+    // Text style props
     variant,
 
     uppercase,
@@ -27,7 +48,6 @@ const Text = (props) => {
 
     center,
 
-    testID,
     ...rest
   } = props;
 
@@ -60,7 +80,26 @@ const Text = (props) => {
   ]);
 
   return (
-    <RNText style={baseStyle} testID={testID}>
+    <RNText
+      style={baseStyle}
+      testID={testID}
+      accessibilityHint={accessibilityHint}
+      accessibilityLabel={accessibilityLabel}
+      accessibilityRole={accessibilityRole}
+      accessibilityState={accessibilityState}
+      accessible={accessible}
+      adjustsFontSizeToFit={adjustsFontSizeToFit}
+      allowFontScaling={allowFontScaling}
+      ellipsizeMode={ellipsizeMode}
+      maxFontSizeMultiplier={maxFontSizeMultiplier}
+      minimumFontScale={minimumFontScale}
+      nativeID={nativeID}
+      numberOfLines={numberOfLines}
+      onLayout={onLayout}
+      onLongPress={onLongPress}
+      onPress={onPress}
+      onTextLayout={onTextLayout}
+      selectable={selectable}>
       {children}
     </RNText>
   );
