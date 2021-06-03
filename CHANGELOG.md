@@ -5,6 +5,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 Headers are one of: `Added`, `Changed`, `Removed`, `Fixed` or `Breaking`.
 
+## [2.2.0]
+
+### Added
+
+- [Missing props](https://reactnative.dev/docs/text#props) on the `Text` primitive ([#107](https://github.com/backpacker/primitives/pull/107))
+- Documentation for custom props on primitives ([#107](https://github.com/backpacker/primitives/pull/107))
+
 ## [2.1.0]
 
 ### Added
