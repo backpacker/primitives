@@ -344,9 +344,12 @@ export interface BackpackerTheme {
   isDark: boolean;
 }
 
-type ConfigType = {
-  [key: string]: BackpackerTheme;
-} & { activeTheme: string };
+export interface ConfigType {
+  themes: {
+    [key: string]: BackpackerTheme;
+  };
+  activeTheme: string;
+}
 
 export interface ConfigContextTypes {
   config: ConfigType;
@@ -367,6 +370,7 @@ export function useTheme(): {
   theme: BackpackerTheme;
   setTheme: (theme: string) => void;
 };
+export const withTheme: (Component: React.ReactElement) => React.ReactElement;
 
 export const defaultTheme: BackpackerTheme;
-export const fontWeights: BackpackerTheme.fontWeights;
+export const fontWeights: BackpackerFontWeights;

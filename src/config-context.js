@@ -18,9 +18,9 @@ const ConfigProvider = ({ children, config: customConfig }) => {
 
   const { activeTheme } = config;
   const theme = {
-    ...config[activeTheme],
-    spacing: (size = config[activeTheme].defaultSpacerSize) =>
-      size * config[activeTheme].spacerUnit
+    ...config.themes[activeTheme],
+    spacing: (size = config.themes[activeTheme].defaultSpacerSize) =>
+      size * config.themes[activeTheme].spacerUnit
   };
 
   const value = {
@@ -35,7 +35,8 @@ const ConfigProvider = ({ children, config: customConfig }) => {
 
 ConfigProvider.propTypes = {
   config: PropTypes.shape({
-    activeTheme: PropTypes.string
+    activeTheme: PropTypes.string,
+    themes: PropTypes.objectOf(PropTypes.any)
   })
 };
 
@@ -48,11 +49,12 @@ ConfigProvider.defaultProps = {
  * @param {React.ReactElement} Component
  * @return {React.ReactElement}
  */
-const withTheme = (Component) => (props) => (
-  <ConfigContext.Consumer>
-    {(value) => <Component {...props} {...value} />}
-  </ConfigContext.Consumer>
-);
+const withTheme = (Component) => (props) =>
+  (
+    <ConfigContext.Consumer>
+      {(value) => <Component {...props} {...value} />}
+    </ConfigContext.Consumer>
+  );
 
 /**
  * @typedef {Object} Theme

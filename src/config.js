@@ -101,7 +101,9 @@ const darkTheme = {
 };
 
 export default {
-  activeTheme: 'default',
-  default: defaultTheme,
-  dark: darkTheme
+  themes: {
+    default: defaultTheme,
+    dark: darkTheme
+  },
+  activeTheme: 'default'
 };
