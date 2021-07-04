@@ -99,6 +99,6 @@ describe(`Test Text variants`, () => {
     const { getByText } = render(tree);
     const t = getByText('Alan Turing');
     expect(t).toBeTruthy();
-    expect(t).toHaveStyle(config.default.textVariants.title1);
+    expect(t).toHaveStyle(config.themes.default.textVariants.title1);
   });
 });
