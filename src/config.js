@@ -34,46 +34,48 @@ export const fontWeights = {
   }
 };
 
+export const textVariants = {
+  largeTitle: {
+    fontSize: 34
+  },
+  title1: {
+    fontSize: 28
+  },
+  title2: {
+    fontSize: 22
+  },
+  title3: {
+    fontSize: 20
+  },
+  headline: {
+    fontSize: 17,
+    ...fontWeights.semibold
+  },
+  body: {
+    fontSize: 17
+  },
+  callout: {
+    fontSize: 16
+  },
+  subhead: {
+    fontSize: 15
+  },
+  footnote: {
+    fontSize: 13
+  },
+  caption1: {
+    fontSize: 12
+  },
+  caption2: {
+    fontSize: 11
+  }
+};
+
 export const defaultTheme = {
   // Typography
   fontFamily: undefined, // default for each Platform
   fontWeights,
-  textVariants: {
-    largeTitle: {
-      fontSize: 34
-    },
-    title1: {
-      fontSize: 28
-    },
-    title2: {
-      fontSize: 22
-    },
-    title3: {
-      fontSize: 20
-    },
-    headline: {
-      fontSize: 17,
-      ...fontWeights.semibold
-    },
-    body: {
-      fontSize: 17
-    },
-    callout: {
-      fontSize: 16
-    },
-    subhead: {
-      fontSize: 15
-    },
-    footnote: {
-      fontSize: 13
-    },
-    caption1: {
-      fontSize: 12
-    },
-    caption2: {
-      fontSize: 11
-    }
-  },
+  textVariants,
 
   // Spacer
   spacerUnit: 8,
@@ -101,7 +103,6 @@ const darkTheme = {
 };
 
 export default {
-  activeTheme: 'default',
   default: defaultTheme,
   dark: darkTheme
 };

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import defaultConfig from './config';
@@ -6,21 +6,22 @@ import defaultConfig from './config';
 const ConfigContext = React.createContext({});
 const ConfigConsumer = ConfigContext.Consumer;
 
-const ConfigProvider = ({ children, config: customConfig }) => {
-  const [config, setConfig] = useState({ ...defaultConfig, ...customConfig });
+const ConfigProvider = ({ children, config: customConfig, defaultTheme }) => {
+  const [activeTheme, setActiveTheme] = useState(defaultTheme);
 
-  const setTheme = (newTheme = '') => {
-    setConfig({
-      ...config,
-      activeTheme: newTheme
-    });
-  };
+  const theme = useMemo(() => {
+    const config = { ...defaultConfig, ...customConfig };
+    const defaultSpacerSize = config?.[activeTheme]?.defaultSpacerSize || 2;
+    const spacerUnit = config?.[activeTheme]?.spacerUnit;
 
-  const { activeTheme } = config;
-  const theme = {
-    ...config[activeTheme],
-    spacing: (size = config[activeTheme].defaultSpacerSize) =>
-      size * config[activeTheme].spacerUnit
+    return {
+      ...config[activeTheme],
+      spacing: (size = defaultSpacerSize) => size * spacerUnit
+    };
+  }, [activeTheme]);
+
+  const setTheme = (newTheme) => {
+    setActiveTheme(newTheme);
   };
 
   const value = {
@@ -34,13 +35,13 @@ const ConfigProvider = ({ children, config: customConfig }) => {
 };
 
 ConfigProvider.propTypes = {
-  config: PropTypes.shape({
-    activeTheme: PropTypes.string
-  })
+  config: PropTypes.shape({}),
+  defaultTheme: PropTypes.string
 };
 
 ConfigProvider.defaultProps = {
-  config: undefined
+  config: {},
+  defaultTheme: 'default'
 };
 
 /**
@@ -48,11 +49,12 @@ ConfigProvider.defaultProps = {
  * @param {React.ReactElement} Component
  * @return {React.ReactElement}
  */
-const withTheme = (Component) => (props) => (
-  <ConfigContext.Consumer>
-    {(value) => <Component {...props} {...value} />}
-  </ConfigContext.Consumer>
-);
+const withTheme = (Component) => (props) =>
+  (
+    <ConfigContext.Consumer>
+      {(value) => <Component {...props} {...value} />}
+    </ConfigContext.Consumer>
+  );
 
 /**
  * @typedef {Object} Theme

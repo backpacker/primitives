@@ -10,7 +10,7 @@ import {
   GestureResponderEvent,
   NativeSyntheticEvent,
   TextLayoutEventData
-} from '@types/react-native';
+} from 'react-native';
 
 export interface LayoutTypes extends ViewStyle {
   /**
@@ -174,7 +174,7 @@ export interface TextTypes extends TextStyle {
    *
    * > `clip` is working only for iOS
    */
-  ellipsizeMode: 'head' | 'middle' | 'tail' | 'clip';
+  ellipsizeMode?: 'head' | 'middle' | 'tail' | 'clip';
 
   /**
    * Specifies largest possible scale a font can reach when allowFontScaling is enabled. Possible values:
@@ -319,22 +319,24 @@ export interface BackpackerFontWeights {
   extraheavy: TextStyle;
 }
 
+export interface BackpackerTextVariants {
+  largeTitle: TextStyle;
+  title1: TextStyle;
+  title2: TextStyle;
+  title3: TextStyle;
+  headline: TextStyle;
+  body: TextStyle;
+  callout: TextStyle;
+  subhead: TextStyle;
+  footnote: TextStyle;
+  caption1: TextStyle;
+  caption2: TextStyle;
+}
+
 export interface BackpackerTheme {
   fontFamily?: string;
   fontWeights?: BackpackerFontWeights;
-  textVariants?: {
-    largeTitle: TextStyle;
-    title1: TextStyle;
-    title2: TextStyle;
-    title3: TextStyle;
-    headline: TextStyle;
-    body: TextStyle;
-    callout: TextStyle;
-    subhead: TextStyle;
-    footnote: TextStyle;
-    caption1: TextStyle;
-    caption2: TextStyle;
-  };
+  textVariants?: BackpackerTextVariants;
   spacerUnit?: number;
   defaultSpacerSize?: number;
   spacing?: (size: number) => number;
@@ -344,12 +346,13 @@ export interface BackpackerTheme {
   isDark: boolean;
 }
 
-type ConfigType = {
+interface ConfigType {
   [key: string]: BackpackerTheme;
-} & { activeTheme: string };
+}
 
 export interface ConfigContextTypes {
   config: ConfigType;
+  defaultTheme?: string;
 }
 
 export const Column: React.FC<LayoutTypes>;
@@ -368,5 +371,7 @@ export function useTheme(): {
   setTheme: (theme: string) => void;
 };
 
+export const fontWeights: BackpackerFontWeights;
+export const textVariants: BackpackerTextVariants;
+
 export const defaultTheme: BackpackerTheme;
-export const fontWeights: BackpackerTheme.fontWeights;
