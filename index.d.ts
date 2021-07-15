@@ -308,51 +308,62 @@ export interface ModalTypes extends ModalProps {
 }
 
 export interface BackpackerFontWeights {
-  extralight: TextStyle;
-  thin: TextStyle;
-  light: TextStyle;
-  normal: TextStyle;
-  medium: TextStyle;
-  semibold: TextStyle;
-  bold: TextStyle;
-  heavy: TextStyle;
-  extraheavy: TextStyle;
+  extralight?: TextStyle;
+  thin?: TextStyle;
+  light?: TextStyle;
+  normal?: TextStyle;
+  medium?: TextStyle;
+  semibold?: TextStyle;
+  bold?: TextStyle;
+  heavy?: TextStyle;
+  extraheavy?: TextStyle;
+  [key: string]: TextStyle | undefined;
 }
 
 export interface BackpackerTextVariants {
-  largeTitle: TextStyle;
-  title1: TextStyle;
-  title2: TextStyle;
-  title3: TextStyle;
-  headline: TextStyle;
-  body: TextStyle;
-  callout: TextStyle;
-  subhead: TextStyle;
-  footnote: TextStyle;
-  caption1: TextStyle;
-  caption2: TextStyle;
+  largeTitle?: TextStyle;
+  title1?: TextStyle;
+  title2?: TextStyle;
+  title3?: TextStyle;
+  headline?: TextStyle;
+  body?: TextStyle;
+  callout?: TextStyle;
+  subhead?: TextStyle;
+  footnote?: TextStyle;
+  caption1?: TextStyle;
+  caption2?: TextStyle;
+  [key: string]: TextStyle | undefined;
 }
 
-export interface BackpackerTheme {
+export interface BackpackerConfigTheme {
   fontFamily?: string;
   fontWeights?: BackpackerFontWeights;
   textVariants?: BackpackerTextVariants;
   spacerUnit?: number;
   defaultSpacerSize?: number;
-  spacing?: (size: number) => number;
   colors?: {
     [key: string]: string;
   };
-  isDark: boolean;
+  isDark?: boolean;
+  [key: string]: any;
 }
 
 interface ConfigType {
-  [key: string]: BackpackerTheme;
+  [key: string]: BackpackerConfigTheme;
 }
 
 export interface ConfigContextTypes {
   config: ConfigType;
   defaultTheme?: string;
+}
+
+export interface BackpackerTheme extends BackpackerConfigTheme {
+  fontWeights: BackpackerFontWeights;
+  textVariants: BackpackerTextVariants;
+  colors: {
+    [key: string]: string;
+  };
+  spacing: (size: number) => number;
 }
 
 export const Column: React.FC<LayoutTypes>;
@@ -374,4 +385,4 @@ export function useTheme(): {
 export const fontWeights: BackpackerFontWeights;
 export const textVariants: BackpackerTextVariants;
 
-export const defaultTheme: BackpackerTheme;
+export const defaultTheme: BackpackerConfigTheme;
