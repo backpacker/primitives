@@ -30,7 +30,7 @@ export interface TextTypes extends TextStyle {
   /**
    * One of the variants defined in the current theme
    */
-  variant:
+  variant?:
     | 'largeTitle'
     | 'title1'
     | 'title2'
@@ -41,7 +41,23 @@ export interface TextTypes extends TextStyle {
     | 'subhead'
     | 'footnote'
     | 'caption1'
-    | 'caption2';
+    | 'caption2'
+    | string;
+
+  /**
+   * One of the weights defined in the current theme
+   */
+  weight?:
+    | 'extralight'
+    | 'thin'
+    | 'light'
+    | 'normal'
+    | 'medium'
+    | 'semibold'
+    | 'bold'
+    | 'heavy'
+    | 'extraheavy'
+    | string;
 
   /**
    * Shorthand for textTransform: 'uppercase'
@@ -348,7 +364,7 @@ export interface BackpackerConfigTheme {
   [key: string]: any;
 }
 
-interface ConfigType {
+export interface ConfigType {
   [key: string]: BackpackerConfigTheme;
 }
 
