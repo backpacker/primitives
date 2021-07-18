@@ -5,6 +5,23 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 Headers are one of: `Added`, `Changed`, `Removed`, `Fixed` or `Breaking`.
 
+## [3.0.0]
+
+### Breaking ⚠️
+
+- `ConfigProvider`'s `config` prop no longer contains the `activeTheme` key. It now only has keys corresponding to theme names - hence becoming a "theme config" only. This separates concerns better, with better typing as a bonus ([#117](https://github.com/backpacker/primitives/pull/117))
+- A new prop `defaultTheme: string` specifies the default theme on `ConfigProvider`.
+- In general, the `ConfigProvider`'s interface is now:
+
+  ```js
+  interface ConfigContextTypes {
+    config: ConfigType;
+    defaultTheme?: string;
+  }
+  ```
+
+- `ConfigConsumer` is no longer exported; the only way to consume the config is either via `useTheme` hook or the `withTheme` HOC
+
 ## [2.2.0]
 
 ### Added

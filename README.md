@@ -262,7 +262,7 @@ The `Modal` primitive is a wrapper for the default RN `Modal`.
 import { useTheme } from '@backpacker/primitives';
 
 function MyComponent() {
-  const { theme, setTheme } = useTHeme;
+  const { theme, setTheme } = useTheme;
 
   return (
     <Column backgroundColor={theme.colors.background} flex={1} center>
@@ -276,7 +276,9 @@ function MyComponent() {
 
 To create a custom theme, we take the [config](./src/config.js) object and extend it using a new key (or overwrite an existing key).
 
-The following keys can be overwritten:
+> By default, the library exposes two themes `default` and `dark`.
+
+The following keys can be overwritten to create a new theme:
 
 - `fontFamily` - string, default is `undefined`.
   ```js
@@ -365,16 +367,30 @@ const customConfig = {
   myDarkTheme
 };
 
-const Root = () => {
+function Root() {
   return (
     <ConfigProvider config={customConfig}>
       <App />
     </ConfigProvider>
   );
-};
+}
 ```
 
-To switch to this theme, use:
+To set the newly created `myDarkTheme` as default, use the `defaultTheme` prop on the `ConfigProvider`:
+
+```js
+import { ConfigProvider } from '@backpacker/primitives';
+
+function Root() {
+  return (
+    <ConfigProvider defaultTheme='myDarkTheme'>
+      <App />
+    </ConfigProvider>
+  );
+}
+```
+
+Or, to switch to this theme, call `setTheme()` inside any child component:
 
 ```js
 import { useTheme } from '@backpacker/primitives';
