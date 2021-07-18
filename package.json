@@ -1,6 +1,6 @@
 {
   "name": "@backpacker/primitives",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "description": "UI primitives for React-Native",
   "author": "Calin Tamas <calinntamas@gmail.com>",
   "main": "index.js",
@@ -37,11 +37,12 @@
     "husky": "3.1.0",
     "jest": "^27.0.4",
     "lint-staged": "^11.0.0",
-    "metro-react-native-babel-preset": "^0.66.0",
     "prettier": "^2.0.5",
     "react-test-renderer": "^17.0.1"
   },
-  "dependencies": {
-    "@types/react-native": "^0.64.4"
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-native": ">=0.61.5",
+    "metro-react-native-babel-preset": ">=0.56.0"
   }
 }

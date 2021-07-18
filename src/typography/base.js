@@ -32,6 +32,7 @@ const Text = (props) => {
 
     // Text style props
     variant,
+    weight,
 
     uppercase,
     underline,
@@ -66,6 +67,8 @@ const Text = (props) => {
     underline && { textDecorationLine: 'underline' },
     strikeout && { textDecorationLine: 'line-through' },
     center && { textAlign: 'center' },
+
+    { ...(fontWeights[weight] ? fontWeights[weight] : {}) },
 
     extralight && { ...fontWeights.extralight },
     thin && { ...fontWeights.thin },
@@ -108,6 +111,7 @@ const Text = (props) => {
 Text.propTypes = {
   ...TextStylePropTypes,
   variant: PropTypes.string,
+  weight: PropTypes.string,
   center: PropTypes.bool,
   uppercase: PropTypes.bool,
   underline: PropTypes.bool,
@@ -124,6 +128,7 @@ Text.propTypes = {
 
 Text.defaultProps = {
   variant: undefined,
+  weight: undefined,
   center: false,
   uppercase: false,
   underline: false,

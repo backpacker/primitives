@@ -1,6 +1,5 @@
 import ConfigContext, {
   ConfigProvider,
-  ConfigConsumer,
   useTheme,
   withTheme
 } from './src/config-context';
@@ -15,7 +14,6 @@ import { Modal } from './src/modal';
 export {
   ConfigContext,
   ConfigProvider,
-  ConfigConsumer,
   useTheme,
   withTheme,
   defaultTheme,

@@ -10,7 +10,7 @@ import {
   GestureResponderEvent,
   NativeSyntheticEvent,
   TextLayoutEventData
-} from '@types/react-native';
+} from 'react-native';
 
 export interface LayoutTypes extends ViewStyle {
   /**
@@ -30,7 +30,7 @@ export interface TextTypes extends TextStyle {
   /**
    * One of the variants defined in the current theme
    */
-  variant:
+  variant?:
     | 'largeTitle'
     | 'title1'
     | 'title2'
@@ -41,7 +41,23 @@ export interface TextTypes extends TextStyle {
     | 'subhead'
     | 'footnote'
     | 'caption1'
-    | 'caption2';
+    | 'caption2'
+    | string;
+
+  /**
+   * One of the weights defined in the current theme
+   */
+  weight?:
+    | 'extralight'
+    | 'thin'
+    | 'light'
+    | 'normal'
+    | 'medium'
+    | 'semibold'
+    | 'bold'
+    | 'heavy'
+    | 'extraheavy'
+    | string;
 
   /**
    * Shorthand for textTransform: 'uppercase'
@@ -174,7 +190,7 @@ export interface TextTypes extends TextStyle {
    *
    * > `clip` is working only for iOS
    */
-  ellipsizeMode: 'head' | 'middle' | 'tail' | 'clip';
+  ellipsizeMode?: 'head' | 'middle' | 'tail' | 'clip';
 
   /**
    * Specifies largest possible scale a font can reach when allowFontScaling is enabled. Possible values:
@@ -308,48 +324,57 @@ export interface ModalTypes extends ModalProps {
 }
 
 export interface BackpackerFontWeights {
-  extralight: TextStyle;
-  thin: TextStyle;
-  light: TextStyle;
-  normal: TextStyle;
-  medium: TextStyle;
-  semibold: TextStyle;
-  bold: TextStyle;
-  heavy: TextStyle;
-  extraheavy: TextStyle;
+  extralight?: TextStyle;
+  thin?: TextStyle;
+  light?: TextStyle;
+  normal?: TextStyle;
+  medium?: TextStyle;
+  semibold?: TextStyle;
+  bold?: TextStyle;
+  heavy?: TextStyle;
+  extraheavy?: TextStyle;
+  [key: string]: TextStyle | undefined;
 }
 
-export interface BackpackerTheme {
-  fontFamily?: string;
-  fontWeights?: BackpackerFontWeights;
-  textVariants?: {
-    largeTitle: TextStyle;
-    title1: TextStyle;
-    title2: TextStyle;
-    title3: TextStyle;
-    headline: TextStyle;
-    body: TextStyle;
-    callout: TextStyle;
-    subhead: TextStyle;
-    footnote: TextStyle;
-    caption1: TextStyle;
-    caption2: TextStyle;
-  };
-  spacerUnit?: number;
-  defaultSpacerSize?: number;
-  spacing?: (size: number) => number;
-  colors?: {
+export interface BackpackerTextVariants {
+  largeTitle?: TextStyle;
+  title1?: TextStyle;
+  title2?: TextStyle;
+  title3?: TextStyle;
+  headline?: TextStyle;
+  body?: TextStyle;
+  callout?: TextStyle;
+  subhead?: TextStyle;
+  footnote?: TextStyle;
+  caption1?: TextStyle;
+  caption2?: TextStyle;
+  [key: string]: TextStyle | undefined;
+}
+
+export interface BackpackerThemeConfig {
+  fontFamily: string;
+  fontWeights: BackpackerFontWeights;
+  textVariants: BackpackerTextVariants;
+  spacerUnit: number;
+  defaultSpacerSize: number;
+  colors: {
     [key: string]: string;
   };
   isDark: boolean;
+  [key: string]: any;
 }
 
-type ConfigType = {
-  [key: string]: BackpackerTheme;
-} & { activeTheme: string };
+export interface ConfigType {
+  [key: string]: BackpackerThemeConfig;
+}
 
 export interface ConfigContextTypes {
   config: ConfigType;
+  defaultTheme?: string;
+}
+
+export interface BackpackerTheme extends BackpackerThemeConfig {
+  spacing: (size: number) => number;
 }
 
 export const Column: React.FC<LayoutTypes>;
@@ -368,5 +393,7 @@ export function useTheme(): {
   setTheme: (theme: string) => void;
 };
 
-export const defaultTheme: BackpackerTheme;
-export const fontWeights: BackpackerTheme.fontWeights;
+export const fontWeights: BackpackerFontWeights;
+export const textVariants: BackpackerTextVariants;
+
+export const defaultTheme: BackpackerThemeConfig;

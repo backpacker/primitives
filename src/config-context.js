@@ -1,74 +1,64 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import defaultConfig from './config';
+import baseConfig from './config';
 
-const ConfigContext = React.createContext({});
-const ConfigConsumer = ConfigContext.Consumer;
+const ConfigContext = React.createContext(undefined);
 
-const ConfigProvider = ({ children, config: customConfig }) => {
-  const [config, setConfig] = useState({ ...defaultConfig, ...customConfig });
+function ConfigProvider({ config: customConfig, defaultTheme, children }) {
+  const [activeTheme, setActiveTheme] = useState(defaultTheme);
 
-  const setTheme = (newTheme = '') => {
-    setConfig({
-      ...config,
-      activeTheme: newTheme
-    });
-  };
+  const theme = useMemo(() => {
+    const config = { ...baseConfig, ...customConfig };
 
-  const { activeTheme } = config;
-  const theme = {
-    ...config[activeTheme],
-    spacing: (size = config[activeTheme].defaultSpacerSize) =>
-      size * config[activeTheme].spacerUnit
-  };
+    const baseTheme = baseConfig.default;
+
+    const defaultSpacerSize =
+      config[activeTheme]?.defaultSpacerSize || baseTheme.defaultSpacerSize;
+    const spacerUnit = config[activeTheme]?.spacerUnit || baseTheme.spacerUnit;
+
+    const spacing = (size = defaultSpacerSize) => size * spacerUnit;
+
+    return {
+      ...config[activeTheme],
+      spacing
+    };
+  }, [activeTheme, customConfig]);
 
   const value = {
     theme,
-    setTheme
+    setTheme: setActiveTheme
   };
 
   return (
     <ConfigContext.Provider value={value}>{children}</ConfigContext.Provider>
   );
-};
+}
 
 ConfigProvider.propTypes = {
-  config: PropTypes.shape({
-    activeTheme: PropTypes.string
-  })
+  config: PropTypes.shape({}),
+  defaultTheme: PropTypes.string
 };
 
 ConfigProvider.defaultProps = {
-  config: undefined
+  config: {},
+  defaultTheme: 'default'
 };
 
-/**
- * HOC for using the active theme in class components
- * @param {React.ReactElement} Component
- * @return {React.ReactElement}
- */
-const withTheme = (Component) => (props) => (
-  <ConfigContext.Consumer>
-    {(value) => <Component {...props} {...value} />}
-  </ConfigContext.Consumer>
-);
+const withTheme = (Component) => (props) =>
+  (
+    <ConfigContext.Consumer>
+      {(value) => <Component {...props} {...value} />}
+    </ConfigContext.Consumer>
+  );
 
-/**
- * @typedef {Object} Theme
- * @property {string} fontFamily
- * @property {Object} fontWeights
- * @property {number} spacerUnit
- * @property {number} defaultSpacerSize
- * @property {Function} spacing
- * @property {Object} colors
- * @property {boolean} isDark
- */
-/**
- * Hook for using the active theme
- * @return {Theme}
- */
-const useTheme = () => useContext(ConfigContext);
+function useTheme() {
+  const ctx = useContext(ConfigContext);
+  if (!ctx) {
+    throw new Error(`useTheme() must be called within ConfigContext`);
+  }
+  return ctx;
+}
 
-export { ConfigProvider, ConfigConsumer, withTheme, useTheme };
+export { ConfigProvider, withTheme, useTheme };
 export default ConfigContext;
