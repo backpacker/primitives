@@ -12,11 +12,12 @@ const ConfigProvider = ({ children, config: customConfig, defaultTheme }) => {
   const theme = useMemo(() => {
     const config = { ...defaultConfig, ...customConfig };
     const defaultSpacerSize = config?.[activeTheme]?.defaultSpacerSize || 2;
-    const spacerUnit = config?.[activeTheme]?.spacerUnit;
+    const spacerUnit = config?.[activeTheme]?.spacerUnit || 8;
+    const spacing = (size = defaultSpacerSize) => size * spacerUnit;
 
     return {
       ...config[activeTheme],
-      spacing: (size = defaultSpacerSize) => size * spacerUnit
+      spacing
     };
   }, [activeTheme]);
 
