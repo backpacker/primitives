@@ -2,7 +2,10 @@
   "name": "@backpacker/primitives",
   "version": "3.0.0",
   "description": "UI primitives for React-Native",
-  "author": "Calin Tamas <calinntamas@gmail.com>",
+  "author": "Calin Tamas <calintamas2@gmail.com>",
+  "contributors": [
+    "Gabriel Borsan <borsan.i.gabi@gmail.com>"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/jest",
