@@ -1,7 +1,7 @@
 import React, { useContext, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import defaultConfig from './config';
+import baseConfig from './config';
 
 const ConfigContext = React.createContext(undefined);
 
@@ -9,16 +9,21 @@ function ConfigProvider({ config: customConfig, defaultTheme, children }) {
   const [activeTheme, setActiveTheme] = useState(defaultTheme);
 
   const theme = useMemo(() => {
-    const config = { ...defaultConfig, ...customConfig };
-    const defaultSpacerSize = config?.[activeTheme]?.defaultSpacerSize || 2;
-    const spacerUnit = config?.[activeTheme]?.spacerUnit || 8;
+    const config = { ...baseConfig, ...customConfig };
+
+    const baseTheme = baseConfig.default;
+
+    const defaultSpacerSize =
+      config[activeTheme]?.defaultSpacerSize || baseTheme.defaultSpacerSize;
+    const spacerUnit = config[activeTheme]?.spacerUnit || baseTheme.spacerUnit;
+
     const spacing = (size = defaultSpacerSize) => size * spacerUnit;
 
     return {
       ...config[activeTheme],
       spacing
     };
-  }, [activeTheme]);
+  }, [activeTheme, customConfig]);
 
   const value = {
     theme,
