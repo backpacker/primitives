@@ -55,7 +55,7 @@ const withTheme = (Component) => (props) =>
 function useTheme() {
   const ctx = useContext(ConfigContext);
   if (!ctx) {
-    throw new Error(`useTheme() must be called within ConfigProvider`);
+    throw new Error(`useTheme() must be called within ConfigContext`);
   }
   return ctx;
 }
