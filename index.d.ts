@@ -351,21 +351,21 @@ export interface BackpackerTextVariants {
   [key: string]: TextStyle | undefined;
 }
 
-export interface BackpackerConfigTheme {
-  fontFamily?: string;
-  fontWeights?: BackpackerFontWeights;
-  textVariants?: BackpackerTextVariants;
-  spacerUnit?: number;
-  defaultSpacerSize?: number;
-  colors?: {
+export interface BackpackerThemeConfig {
+  fontFamily: string;
+  fontWeights: BackpackerFontWeights;
+  textVariants: BackpackerTextVariants;
+  spacerUnit: number;
+  defaultSpacerSize: number;
+  colors: {
     [key: string]: string;
   };
-  isDark?: boolean;
+  isDark: boolean;
   [key: string]: any;
 }
 
 export interface ConfigType {
-  [key: string]: BackpackerConfigTheme;
+  [key: string]: BackpackerThemeConfig;
 }
 
 export interface ConfigContextTypes {
@@ -373,12 +373,7 @@ export interface ConfigContextTypes {
   defaultTheme?: string;
 }
 
-export interface BackpackerTheme extends BackpackerConfigTheme {
-  fontWeights: BackpackerFontWeights;
-  textVariants: BackpackerTextVariants;
-  colors: {
-    [key: string]: string;
-  };
+export interface BackpackerTheme extends BackpackerThemeConfig {
   spacing: (size: number) => number;
 }
 
@@ -401,4 +396,4 @@ export function useTheme(): {
 export const fontWeights: BackpackerFontWeights;
 export const textVariants: BackpackerTextVariants;
 
-export const defaultTheme: BackpackerConfigTheme;
+export const defaultTheme: BackpackerThemeConfig;
