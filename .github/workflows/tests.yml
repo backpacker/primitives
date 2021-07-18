@@ -8,7 +8,13 @@ jobs:
 
     strategy:
       matrix:
-        rn_version: ['0.63.4', '0.64.0']
+        include:
+          - react_version: '16.9.0'
+            react_native_version: '0.61.5'
+            metro_babel_preset_version: '0.56.0'
+          - react_version: '17.0.1'
+            react_native_version: '0.64.2'
+            metro_babel_preset_version: '0.64.0'
 
     steps:
       - name: Checkout
@@ -17,7 +23,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 14
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -37,8 +43,9 @@ jobs:
 
       - name: Setup React Native environment
         run: |
-          yarn add react-native@${{ matrix.rn_version }}
-          yarn add react@16.13.1
+          yarn add react@${{ matrix.react_version }}
+          yarn add react-native@${{ matrix.react_native_version }}
+          yarn add metro-react-native-babel-preset@${{ matrix.metro_babel_preset_version }}
 
       - name: Run tests
         run: yarn test --coverage

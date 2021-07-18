@@ -12,7 +12,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 14
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -32,8 +32,7 @@ jobs:
 
       - name: Setup React Native environment
         run: |
-          yarn add react-native@0.63.4
-          yarn add react@16.13.1
+          yarn add react@16.9.0 react-native@0.61.5 metro-react-native-babel-preset@0.56.0
 
       - name: Run eslint
         run: yarn lint

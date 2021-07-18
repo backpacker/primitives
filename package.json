@@ -41,8 +41,8 @@
     "react-test-renderer": "^17.0.1"
   },
   "peerDependencies": {
-    "react": "^16.9.0",
-    "react-native": "^0.61.5",
-    "metro-react-native-babel-preset": "^0.64.0"
-    }
+    "react": ">=16.9.0",
+    "react-native": ">=0.61.5",
+    "metro-react-native-babel-preset": ">=0.56.0"
+  }
 }
