@@ -5,6 +5,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 Headers are one of: `Added`, `Changed`, `Removed`, `Fixed` or `Breaking`.
 
+## [3.0.1]
+
+### Fixed
+
+- Fixed publish workflow which was wrongly introducing react, react-native and metro-react-native-babel-preset dependencies ([#121](https://github.com/backpacker/primitives/pull/121))
+
 ## [3.0.0]
 
 ### Breaking ⚠️
