@@ -1,6 +1,6 @@
 {
   "name": "@backpacker/primitives",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "UI primitives for React-Native",
   "author": "Calin Tamas <calintamas2@gmail.com>",
   "contributors": [

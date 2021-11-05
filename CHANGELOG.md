@@ -5,6 +5,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 Headers are one of: `Added`, `Changed`, `Removed`, `Fixed` or `Breaking`.
 
+## [3.0.2]
+
+### Fixed
+
+- `ansi-regex` vulnerability by upgrading to `@testing-library/jest-native v4.0.4` ([#134](https://github.com/backpacker/primitives/pull/134))
+
 ## [3.0.1]
 
 ### Fixed
