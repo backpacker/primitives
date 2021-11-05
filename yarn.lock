@@ -1693,10 +1693,10 @@ eslint-config-airbnb@^18.2.1:
     object.assign "^4.1.2"
     object.entries "^1.1.2"
 
-eslint-config-backpacker-react@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-backpacker-react/-/eslint-config-backpacker-react-0.7.0.tgz#3e84e9f814ac4fa7c49c498c221a065db353ad05"
-  integrity sha512-z3PGZx4cekbD8peTgNx7r8D5OND6pF+l74Mvi8X/Z2h6+MGSdgBnMmXmTr/y8jKoeTlFk743E6ylU1fYeH9a4A==
+eslint-config-backpacker-react@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-backpacker-react/-/eslint-config-backpacker-react-0.8.0.tgz#4d7b8cf887bb56de7a5950930f494feef36d0453"
+  integrity sha512-zZpr8YcJyuGGxQF+x4kG5XiWbhoj3zyhEc88AOe+yAxDJ5i6n8BtdVZsCCcWraXcvpGA+OC3/sHzD4GpzHNrmg==
   dependencies:
     "@babel/core" "^7.14.0"
     "@babel/eslint-parser" "^7.13.14"
