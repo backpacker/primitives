@@ -35,7 +35,7 @@
   "license": "MIT",
   "devDependencies": {
     "@testing-library/jest-native": "^4.0.4",
-    "@testing-library/react-native": "^8.0.0",
+    "@testing-library/react-native": "^11.3.0",
     "eslint-config-backpacker-react": "^0.8.0",
     "husky": "3.1.0",
     "jest": "^27.0.4",
